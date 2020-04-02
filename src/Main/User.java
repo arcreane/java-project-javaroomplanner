@@ -21,3 +21,5 @@ public class User {
 	public void JoinMeeting() {
 	}
 }
+
+// 1. Créer des modules room / users

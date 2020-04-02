@@ -18,5 +18,5 @@ public class Room {
 	public Object Available;
 	public Object Slot;
 	public User Users;
-	public Object Room-size;
+	// public Object Room-size;
 }
