@@ -16,7 +16,29 @@ public class MainRoomPlanner {
 		 switch(answer) {
 		 case 1:
 			System.out.println("Vous aller pouvoir vous connecter");
-			 
+			 Scanner input = new Scanner(System.in);
+		        System.out.print("UserName: ");
+		        String username= input.nextLine();
+		        System.out.print("Password: ");
+		        String password= input.nextLine();
+		        System.out.println("Username: " + username);
+		        System.out.println("Password: " + password);
+		        while(!username.equals("test") && !password.equals("test") ){
+					System.out.println("Veuillez recommencer ");
+					 System.out.print("UserName: ");
+					  username= input.nextLine();
+					 System.out.print("Password: ");
+					  password= input.nextLine();
+				}
+		        if (username.equals("test")){
+		            if (password.equals("test")){
+		                System.out.println("Vous etez connecter :)");
+		            }
+		            else{
+		                System.out.println("Votre tentative de connexion a echouer :(");
+		               
+		            }
+		        }
 			
 		    break;
 		  case 2:
