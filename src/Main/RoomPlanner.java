@@ -11,15 +11,11 @@ public class RoomPlanner {
 	static void StartPlanning() {
 		boolean keepWorking = true;
 		while (keepWorking) {
-			System.out.println("Hello, bienvenue dans notre syteme de gestion d'utilisateur");
-			System.out.println("Veuillez taper 1 pour vous connecter ou vous inscricre \n"
-					+ " taper 2 pour faire une demande d'inscription qui devra être validé par le directeur\n"
-					+ " taper 3 pour quitter");
+			System.out.println("Bienvenue sur RoomPlanner");
+			System.out.println("- Taper 1 =  Se connecter ! \n"
+					+ "- Taper 2 = S'Inscrire (cette inscription sera validÃ© ou non par le Directeur)\n"
+					+ "- Taper 3 = Quitter l'application...");
 			Scanner scanuser = new Scanner(System.in);
-			while (scanuser.hasNextInt() == false) {
-				System.out.println("Choisie soit 1 pour la connexion ou 2 si tu n'est pas encore inscrit");
-				scanuser.next();
-			}
 			int answer = scanuser.nextInt();
 			switch (answer) {
 			case 1:
@@ -30,7 +26,7 @@ public class RoomPlanner {
 				break;
 			case 2:
 				SimulateBDD.SignIn();
-				System.out.println("Votre demande a bien été prise en compte elle devrait être validée sous peu");
+				System.out.println("Votre demande a bien ï¿½tï¿½ prise en compte elle devrait ï¿½tre validï¿½e sous peu...");
 				break;
 			case 3:
 				keepWorking = false;

@@ -2,8 +2,6 @@ package User;
 
 import java.util.Scanner;
 
-import Main.MainRoomPlanner;
-
 public abstract class User {
 
 	String Name;
@@ -33,7 +31,7 @@ public abstract class User {
 
 	static public User RegisterUser() {
 		System.out.println(
-				"Pour vous enregistrer veuillez ecrire les information suivante : - votre nom, - votre prenom, - votre email , - votre password");
+				"Pour vous inscrire, veuillez nous fournir les informations suivantes :\n Nom, Prenom, Mail , Password");
 	
 		String Name = GetUserInput("Nom: ");
 		String Username = GetUserInput("Prenom: ");
@@ -44,10 +42,10 @@ public abstract class User {
 		
 		
 
-		String Role = GetUserInput("Quel est votre role \\n"
-				+ "1 Collaborateur,\n"
-				+ "2 Guest,\n"
-				+ "3 pour Manager");
+		String Role = GetUserInput("Quel est votre role \n"
+				+ "1 > Collaborateur,\n"
+				+ "2 > Guest,\n"
+				+ "3 > Manager \n");
 		User user = null;
 		switch(Role)
 		{

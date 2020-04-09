@@ -85,7 +85,7 @@ public class SimulateBDD {
 	
 	static void SignIn()
 	{
-		System.out.println("Vous aller pouvoir vous s'incricre");
+		System.out.println("** INSCRIPTION **");
 		User user = User.RegisterUser();
 		tempusers.put(user.GetMail(),user);
 	}
