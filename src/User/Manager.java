@@ -1,6 +1,5 @@
 package User;
 
-import User.User;
 
 public class Manager extends User {
 	Manager(){
