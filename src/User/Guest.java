@@ -1,3 +1,4 @@
+
 package User;
 
 
@@ -22,4 +23,11 @@ public class Guest extends User {
 	
 	public void BookRoom() {
 	}
+	@Override
+	public void StartWorking() {
+		// TODO Auto-generated method stub
+		
+	}
 }
+
+

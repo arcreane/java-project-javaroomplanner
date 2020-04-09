@@ -1,3 +1,4 @@
+
 package User;
 
 
@@ -21,5 +22,10 @@ public class Manager extends User {
 	}
 	
 	public void BookRoom() {
+	}
+	@Override
+	public void StartWorking() {
+		// TODO Auto-generated method stub
+		
 	}
 }
