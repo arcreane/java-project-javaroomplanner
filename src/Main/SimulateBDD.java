@@ -37,7 +37,24 @@ public class SimulateBDD {
 		users.put(myManager1.GetMail(), myManager1);
 		users.put(myManager2.GetMail(), myManager2);
 		users.put(myManager3.GetMail(), myManager3);
-		
+		Collaborator myCollaborator1 = new Collaborator("Crevette", "Rouge", "crevette@rouge.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator2 = new Collaborator("Crevette", "Rose", "crevette@rose.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator3 = new Collaborator("Crevette", "Jaune", "crevette@jaune.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator4 = new Collaborator("Crevette", "Orange", "crevette@orange.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator5 = new Collaborator("Crevette", "Vert", "crevette@vert.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator6 = new Collaborator("Crevette", "Bleu", "crevette@bleu.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator7 = new Collaborator("Crevette", "Violet", "crevette@violet.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator8 = new Collaborator("Crevette", "Marron", "crevette@marron.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator9 = new Collaborator("Crevette", "Noire", "crevette@noire.fr", "azertyuiop","azertyuiop" );
+		users.put(myCollaborator1.GetMail(), myCollaborator1);
+		users.put(myCollaborator2.GetMail(), myCollaborator2);
+		users.put(myCollaborator3.GetMail(), myCollaborator3);
+		users.put(myCollaborator4.GetMail(), myCollaborator4);
+		users.put(myCollaborator5.GetMail(), myCollaborator5);
+		users.put(myCollaborator6.GetMail(), myCollaborator6);
+		users.put(myCollaborator7.GetMail(), myCollaborator7);
+		users.put(myCollaborator8.GetMail(), myCollaborator8);
+		users.put(myCollaborator9.GetMail(), myCollaborator9);
 	}
 	
 	static public void CreateRooms()
