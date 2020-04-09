@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import User.Collaborator;
 import User.Director;
+import User.Manager;
 import User.User;
 
 public class SimulateBDD {
@@ -29,9 +30,14 @@ public class SimulateBDD {
 	static void CreateUsers()
 	{
 		Director myDirect = new Director("DAM", "Tony", "tony@dam.fr", "azertyuiop","azertyuiop" );
-		
-		//Manager myManager = .myDirect..
 		users.put(myDirect.GetMail(), myDirect);
+		Manager myManager1 = new Manager("Compoint", "Laure", "laure@compoint.fr", "azertyuiop","azertyuiop" );
+		Manager myManager2 = new Manager("Larpenteur", "Coralie", "coralie@larpenteur.fr", "azertyuiop","azertyuiop" );
+		Manager myManager3 = new Manager("Coco", "Marie-Ange", "marie-ange@coco.fr", "azertyuiop","azertyuiop" );
+		users.put(myManager1.GetMail(), myManager1);
+		users.put(myManager2.GetMail(), myManager2);
+		users.put(myManager3.GetMail(), myManager3);
+		
 	}
 	
 	static public void CreateRooms()
