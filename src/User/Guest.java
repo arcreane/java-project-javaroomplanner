@@ -15,4 +15,10 @@ package User;
 
 
 public class Guest extends User {
+
+	@Override
+	public void StartWorking() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -1,4 +1,4 @@
-package Main;
+package User;
 
 import User.User;
 
@@ -18,5 +18,11 @@ import User.User;
 
 public class Manager extends User {
 	public void BookRoom() {
+	}
+
+	@Override
+	public void StartWorking() {
+		// TODO Auto-generated method stub
+		
 	}
 }
