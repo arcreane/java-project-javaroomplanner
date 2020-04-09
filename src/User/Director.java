@@ -33,7 +33,7 @@ public class Director extends User {
 		while (keepWorking) {
 			System.out.println("Que voulez faire");
 			System.out.println("Choix 1 : Gérer les utilisateurs");
-			System.out.println("Choix 2 : Valider les demandes d'inscription");
+			System.out.println("Choix 2 : Valider les demandes d'inscription.");
 			System.out.println("Choix 3 : Gérer les salles");
 			System.out.println("Choix 4 : Voir les différents réservations.");
 			System.out.println("Choix 5 : Se déconnecter");
