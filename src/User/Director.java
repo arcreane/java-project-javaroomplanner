@@ -40,8 +40,15 @@ public class Director extends User {
 			String getuser = input.nextLine();
 			switch(getuser)
 			{
+			case "1" :
+				System.out.println("Voici la liste des utilisateur :");
+				Map<String, User> userToAfficher = SimulateBDD.Getusers();
+				System.out.println( userToAfficher);
+				
+				break;
 			case "2" :
 				Map<String, User> userToValidate = SimulateBDD.GetTmpUsers();
+				System.out.println( userToValidate);
 				break;
 			case "5":
 				keepWorking = false;
