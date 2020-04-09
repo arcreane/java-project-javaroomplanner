@@ -32,17 +32,18 @@ public class Director extends User {
 		boolean keepWorking = true;
 		while (keepWorking) {
 			System.out.println("Que voulez faire");
-			System.out.println("Choix 1 : Enregistre un nouvel utilisateur");
+			System.out.println("Choix 1 : Gérer les utilisateurs");
 			System.out.println("Choix 2 : Valider les demandes d'inscription");
-			System.out.println("Choix 3 : g�rer les salles");
-			System.out.println("Choix 4 : se d�connecter");
+			System.out.println("Choix 3 : Gérer les salles");
+			System.out.println("Choix 4 : Voir les différents réservations.");
+			System.out.println("Choix 5 : Se déconnecter");
 			String getuser = input.nextLine();
 			switch(getuser)
 			{
 			case "2" :
 				Map<String, User> userToValidate = SimulateBDD.GetTmpUsers();
 				break;
-			case "4":
+			case "5":
 				keepWorking = false;
 				break;
 			}
