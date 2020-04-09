@@ -27,7 +27,7 @@ public class SimulateBDD {
 	/// pour le moment seront supprim�es un fois 
 	/// qu'il y aura un BDD fonctionnelle ou un 
 	/// enregistrement des donn�es dans un fichier
-	static void CreateUsers()
+	public static void CreateUsers()
 	{
 		Director myDirect = new Director("DAM", "Tony", "tony@dam.fr", "azertyuiop","azertyuiop" );
 		users.put(myDirect.GetMail(), myDirect);
@@ -99,6 +99,9 @@ public class SimulateBDD {
 
 	public static Map<String, User> GetTmpUsers() {
 		return tempusers;
+	}
+	public static Map<String, User> Getusers() {
+		return users;
 	}
 
 
