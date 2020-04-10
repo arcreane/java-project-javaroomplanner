@@ -35,6 +35,7 @@ public class Director extends User {
 			System.out.println("Choix 1 : Gérer les utilisateurs");
 			System.out.println("Choix 2 : Valider les demandes d'inscription.");
 			System.out.println("Choix 3 : Enregister un nouveau employer.");
+			System.out.println("Choix 7 : Supprimer un utilisateur");
 			System.out.println("Choix 4 : Gérer les salles");
 			System.out.println("Choix 5 : Voir les différents réservations.");
 			System.out.println("Choix 6 : Se déconnecter");
@@ -49,7 +50,14 @@ public class Director extends User {
 				
 				
 				break;
-			
+				
+			case "7" :
+				System.out.println("Voici la liste des utilisateur que vous pouvez supprimer,  :");
+				Map<String, User> userToAfficherPourSupprimer = SimulateBDD.Getusers();
+				System.out.println( userToAfficherPourSupprimer);
+				System.out.println("Taper l'identifiant de l'user que vous voulez supprimer :");
+				SimulateBDD.getUsers().remove("aude@gmail.fr");
+				break;
 			case "2" :
 				System.out.println("Voici la liste des demandes d'utilisateur :");
 				Map<String, User> userToValidate = SimulateBDD.GetTmpUsers();
