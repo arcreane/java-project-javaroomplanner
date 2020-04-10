@@ -26,7 +26,20 @@ public class Director extends User {
 
 	public void BookRoom() {
 	}
-
+	public void UserAll() {
+		Map<String, User> userToAfficher = SimulateBDD.Getusers();
+		userToAfficher.forEach((userAll, User)->{
+			System.out.println("-----------------------------------");
+			System.out.println("Name :" +  User.Name );
+			System.out.println("Prenom :" + User.Username );
+			System.out.println("Mail :" + User.Mail );
+			System.out.println("-----------------------------------");
+		});
+	}
+	private static String GetUserModifInput(String InfoToGet) {
+		System.out.print(InfoToGet);
+		return input.nextLine();
+	}
 	@Override
 	public void StartWorking() {
 		boolean keepWorking = true;
@@ -46,16 +59,8 @@ public class Director extends User {
 			{
 			case "1" :
 				System.out.println("Voici la liste des utilisateur :");
-				Map<String, User> userToAfficher = SimulateBDD.Getusers();
-				userToAfficher.forEach((userAll, User)->{
-					System.out.println("-----------------------------------");
-					System.out.println("Name :" +  User.Name );
-					System.out.println("Prenom :" + User.Username );
-					System.out.println("Mail :" + User.Mail );
-					System.out.println("-----------------------------------");
-				});
-				
-				
+				UserAll();
+			
 				break;
 				
 			case "9" :
@@ -74,8 +79,7 @@ public class Director extends User {
 					
 			case "7" :
 				System.out.println("Voici la liste des utilisateur que vous pouvez supprimer,  :");
-				Map<String, User> userToAfficherPourSupprimer = SimulateBDD.Getusers();
-				System.out.println( userToAfficherPourSupprimer);
+				UserAll();
 				System.out.println("Taper l'identifiant (mail) de l'user que vous voulez supprimer :");
 				String getmailuserremove = input.nextLine();
 				SimulateBDD.getUsers().remove(getmailuserremove);
@@ -85,11 +89,18 @@ public class Director extends User {
 			case "8" :
 				System.out.println("Voici la liste des utilisateur que vous pouvez modifier,  :");
 				Map<String, User> userToAfficherPourModifier = SimulateBDD.Getusers();
-				System.out.println( userToAfficherPourModifier);
+				UserAll();
 				System.out.println("Taper l'identifiant (mail) de l'user que vous voulez modifier :");
 				String getmailusermodif = input.nextLine();
+				System.out.println("Maintenant taper les nouvelles information que vous voulez modifier :");
 				
-				SimulateBDD.getUsers().replace( getmailusermodif, User, null );
+				String Name = GetUserModifInput("Nom: ");
+				String Username = GetUserModifInput("Prenom: ");
+				String Mail = GetUserModifInput("Mail: ");
+				String Password = GetUserModifInput("Password: ");
+				String ConfirmPassword = GetUserModifInput("Confirm-Password: ");
+				
+				SimulateBDD.getUsers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Director(Name, Username, Mail, Password,ConfirmPassword ) );
 				
 				System.out.println("Votre utilisateur a bien été modifier");
 				break;
@@ -97,7 +108,13 @@ public class Director extends User {
 			case "2" :
 				System.out.println("Voici la liste des demandes d'utilisateur :");
 				Map<String, User> userToValidate = SimulateBDD.GetTmpUsers();
-				System.out.println( userToValidate);
+				userToValidate.forEach((userAll, User)->{
+					System.out.println("-----------------------------------");
+					System.out.println("Name :" +  User.Name );
+					System.out.println("Prenom :" + User.Username );
+					System.out.println("Mail :" + User.Mail );
+					System.out.println("-----------------------------------");
+				});
 				System.out.println("Voulez vous valider tout vos demande ? ( taper OUI ou NON )");
 				
 				String getvalidationrequeste = input.nextLine();
