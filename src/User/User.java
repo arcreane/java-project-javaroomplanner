@@ -1,15 +1,17 @@
 package User;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public abstract class User {
 
 	String Name;
 	String Username;
-	String Mail;
+	static String Mail;
 	String Password;
 	String ConfirmPassword;
 	static Scanner input = new Scanner(System.in);
+	private static User User;
 	
 	public User() {
 
@@ -23,45 +25,69 @@ public abstract class User {
 		ConfirmPassword = confirmpassword;
 	}
 
-	public String GetMail() {
+	public static String GetMail() {
 		return Mail;
 	}
-
 	
 
+	public static boolean isValid(String Mail) 
+    { 
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+                              
+        Pattern pat = Pattern.compile(emailRegex); 
+        if (Mail == null) 
+            return false; 
+        return pat.matcher(Mail).matches(); 
+    } 
+  
 	static public User RegisterUser() {
+		char reponserestart = ' ';
+		User user = null;
 		System.out.println(
 				"Pour vous inscrire, veuillez nous fournir les informations suivantes :\n Nom, Prenom, Mail , Password");
-	
+		
+	do {
+		
+		
 		String Name = GetUserInput("Nom: ");
 		String Username = GetUserInput("Prenom: ");
-		String Mail = GetUserInput("Mail: ");
+		String mail = GetUserInput("Mail: ");
 		String Password = GetUserInput("Password: ");
 		String ConfirmPassword = GetUserInput("Confirm-Password: ");
-
+	
 		
-		
-
 		String Role = GetUserInput("Quel est votre role \n"
 				+ "1 > Collaborateur,\n"
 				+ "2 > Guest,\n"
 				+ "3 > Manager \n");
-		User user = null;
+		
+		
 		switch(Role)
 		{
 			case "1":
-				user = new Collaborator(Name, Username, Mail, Password, ConfirmPassword);
+				user = new Collaborator(Name, Username, mail, Password, ConfirmPassword);
 				break;
 				
 			case "2":
-				user = new Guest(Name, Username, Mail, Password, ConfirmPassword);
+				user = new Guest(Name, Username, mail, Password, ConfirmPassword);
 				break;
 			
 			case "3":
-				user = new Manager(Name, Username, Mail, Password, ConfirmPassword);
+				user = new Manager(Name, Username, mail, Password, ConfirmPassword);
 				break;
 		}
-		return user;
+		if (!isValid(mail) || !(Password.equals(ConfirmPassword))) 
+            System.out.println("Votre email n'est pas valide ou votre mot passe ne correspond pas"); 
+        
+		
+		
+	}while(!isValid(GetMail()));
+	
+	return user;
+		
 	}
 
 	private static String GetUserInput(String InfoToGet) {
