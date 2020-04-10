@@ -55,8 +55,10 @@ public class Director extends User {
 				System.out.println("Voici la liste des utilisateur que vous pouvez supprimer,  :");
 				Map<String, User> userToAfficherPourSupprimer = SimulateBDD.Getusers();
 				System.out.println( userToAfficherPourSupprimer);
-				System.out.println("Taper l'identifiant de l'user que vous voulez supprimer :");
-				SimulateBDD.getUsers().remove("aude@gmail.fr");
+				System.out.println("Taper l'identifiant (mail) de l'user que vous voulez supprimer :");
+				String getmailuserremove = input.nextLine();
+				SimulateBDD.getUsers().remove(getmailuserremove);
+				System.out.println("Votre utilisateur : "+ getmailuserremove + "a bien été supprimer");
 				break;
 			case "2" :
 				System.out.println("Voici la liste des demandes d'utilisateur :");
