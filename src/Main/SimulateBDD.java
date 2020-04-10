@@ -29,7 +29,7 @@ public class SimulateBDD {
 	/// enregistrement des donn�es dans un fichier
 	public static void CreateUsers()
 	{
-		Director myDirect = new Director("DAM", "Tony", "tony@dam.fr", "azertyuiop","azertyuiop" );
+		Director myDirect = new Director("DAM", "Tony", "tony@gmail.com", "tony","tony" );
 		getUsers().put(myDirect.GetMail(), myDirect);
 		Manager myManager1 = new Manager("Compoint", "Laure", "laure@compoint.fr", "azertyuiop","azertyuiop" );
 		Manager myManager2 = new Manager("Larpenteur", "Coralie", "coralie@larpenteur.fr", "azertyuiop","azertyuiop" );
