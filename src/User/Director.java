@@ -100,7 +100,34 @@ public class Director extends User {
 				String Password = GetUserModifInput("Password: ");
 				String ConfirmPassword = GetUserModifInput("Confirm-Password: ");
 				
-				SimulateBDD.getUsers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Director(Name, Username, Mail, Password,ConfirmPassword ) );
+				
+				String Role = GetUserModifInput("Quel est votre role \n"
+						+ "1 > Collaborateur,\n"
+						+ "2 > Guest,\n"
+						+ "3 > Manager \n"
+				         + "4 > Director \n");
+				
+				switch(Role)
+				{
+					case "1":
+						SimulateBDD.getUsers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Collaborator(Name, Username, Mail, Password,ConfirmPassword ) );
+						break;
+						
+					case "2":
+						SimulateBDD.getUsers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Guest(Name, Username, Mail, Password,ConfirmPassword ) );
+						break;
+					
+					case "3":
+						SimulateBDD.getUsers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Manager(Name, Username, Mail, Password,ConfirmPassword ) );
+						break;
+					case "4":
+						SimulateBDD.getUsers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Director(Name, Username, Mail, Password,ConfirmPassword ) );
+						
+						break;
+				}
+				
+				
+				
 				
 				System.out.println("Votre utilisateur a bien été modifier");
 				break;
