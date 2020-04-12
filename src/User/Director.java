@@ -48,12 +48,12 @@ public class Director extends User {
 			System.out.println("Choix 1 : Gérer les utilisateurs");
 			System.out.println("Choix 2 : Valider les demandes d'inscription.");
 			System.out.println("Choix 3 : Enregister un nouveau employer.");
-			System.out.println("Choix 7 : Supprimer un utilisateur");
-			System.out.println("Choix 8 : Modifier un utilisateur");
-			System.out.println("Choix 9 : Voir un utilisateur unique");
 			System.out.println("Choix 4 : Gérer les salles");
 			System.out.println("Choix 5 : Voir les différents réservations.");
 			System.out.println("Choix 6 : Se déconnecter");
+			System.out.println("Choix 7 : Supprimer un utilisateur");
+			System.out.println("Choix 8 : Modifier un utilisateur");
+			System.out.println("Choix 9 : Voir un utilisateur unique");
 			String getuser = input.nextLine();
 			switch(getuser)
 			{
@@ -63,19 +63,37 @@ public class Director extends User {
 			
 				break;
 				
-			case "9" :
-				System.out.println("Ecriver l'identifiant (mail) de l'utilisateur que vous voulez voir  :");
-				String getmailuserunique = input.nextLine();
-				Map<String, User> userToAfficherOne = SimulateBDD.Getusers();
-				User userunique = userToAfficherOne.get(getmailuserunique);
-				System.out.println("-----------------------------------");
-				System.out.println("Name :" + userunique.Name );
-				System.out.println("Prenom :" + userunique.Username );
-				System.out.println("Mail :" + userunique.Mail );
-				System.out.println("-----------------------------------");
+			case "2" :
+				System.out.println("Voici la liste des demandes d'utilisateur :");
+				Map<String, User> userToValidate = SimulateBDD.GetTmpUsers();
+				userToValidate.forEach((userAll, User)->{
+					System.out.println("-----------------------------------");
+					System.out.println("Name :" +  User.Name );
+					System.out.println("Prenom :" + User.Username );
+					System.out.println("Mail :" + User.Mail );
+					System.out.println("-----------------------------------");
+				});
+				System.out.println("Voulez vous valider tout vos demande ? ( taper OUI ou NON )");
 				
-				
+				String getvalidationrequeste = input.nextLine();
+				if(getvalidationrequeste.contentEquals("OUI")) {
+						SimulateBDD.getUsers().putAll(userToValidate);
+						System.out.println("Vos nouveaux utilisateurs on été validé, vous pouvez desormais les voirs dans gérer les utilisateurs :");
+				}else {
+						System.out.println("Vos demande de validation n'ont pas été validé");
+				}
+
 				break;
+				
+			case "3" :
+				System.out.println("Vous pouvez désormais incricre un nouveau employer :");
+				User user = User.RegisterUser();
+				SimulateBDD.getUsers().put(user.GetMail(),user);
+				System.out.println("Vous venez d'enregistrer votre nouveau employer :");
+				break;
+				
+				
+			
 					
 			case "7" :
 				System.out.println("Voici la liste des utilisateur que vous pouvez supprimer,  :");
@@ -132,35 +150,19 @@ public class Director extends User {
 				System.out.println("Votre utilisateur a bien été modifier");
 				break;
 				
-			case "2" :
-				System.out.println("Voici la liste des demandes d'utilisateur :");
-				Map<String, User> userToValidate = SimulateBDD.GetTmpUsers();
-				userToValidate.forEach((userAll, User)->{
-					System.out.println("-----------------------------------");
-					System.out.println("Name :" +  User.Name );
-					System.out.println("Prenom :" + User.Username );
-					System.out.println("Mail :" + User.Mail );
-					System.out.println("-----------------------------------");
-				});
-				System.out.println("Voulez vous valider tout vos demande ? ( taper OUI ou NON )");
+			case "9" :
+				System.out.println("Ecriver l'identifiant (mail) de l'utilisateur que vous voulez voir  :");
+				String getmailuserunique = input.nextLine();
+				Map<String, User> userToAfficherOne = SimulateBDD.Getusers();
+				User userunique = userToAfficherOne.get(getmailuserunique);
+				System.out.println("-----------------------------------");
+				System.out.println("Name :" + userunique.Name );
+				System.out.println("Prenom :" + userunique.Username );
+				System.out.println("Mail :" + userunique.Mail );
+				System.out.println("-----------------------------------");
 				
-				String getvalidationrequeste = input.nextLine();
-				if(getvalidationrequeste.contentEquals("OUI")) {
-						SimulateBDD.getUsers().putAll(userToValidate);
-						System.out.println("Vos nouveaux utilisateurs on été validé, vous pouvez desormais les voirs dans gérer les utilisateurs :");
-				}else {
-						System.out.println("Vos demande de validation n'ont pas été validé");
-				}
-
+				
 				break;
-				
-			case "3" :
-				System.out.println("Vous pouvez désormais incricre un nouveau employer :");
-				User user = User.RegisterUser();
-				SimulateBDD.getUsers().put(user.GetMail(),user);
-				System.out.println("Vous venez d'enregistrer votre nouveau employer :");
-				break;
-				
 			case "6":
 				keepWorking = false;
 				break;
