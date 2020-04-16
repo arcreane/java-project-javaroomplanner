@@ -1,4 +1,3 @@
-
 package User;
 
 
@@ -10,14 +9,7 @@ public class Guest extends User {
 		super(name, username, mail, password, comfirmpassword);
 		// TODO Auto-generated constructor stub
 	}
-	public static Guest createnewuser() {
-		Guest newguest = new Guest();
-		
-       
-		newguest.RegisterUser();
-		return newguest;
-	}
-
+	
 	public void EjectRoom() {
 	}
 	
@@ -29,5 +21,3 @@ public class Guest extends User {
 		
 	}
 }
-
-
