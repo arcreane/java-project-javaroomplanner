@@ -77,22 +77,22 @@ public abstract class Room {
 	
 	public static Room ChangeRoomRole(Room roomToModif, ROLE_TYPE newRole) {
 		Room room = null;
-		String Material = userToModif.Name;
-		String Available = userToModif.Username;
-		String Slot = userToModif.Mail;
+		String Material = roomToModif.Material;
+		String Available = roomToModif.Available;
+		String Slot = roomToModif.Slot;
 		switch (newRole)
 		{
-		case COLLABORATOR:
-			user = new Collaborator(name, userName, mail, pass, pass);
+		case AMPHITHEATER:
+			user = new Amphitheater(Material, Available, Slot);
 			break;
-		case DIRECTOR:
-			user = new Director(name, userName, mail, pass, pass);
+		case CLASSICALROOM:
+			user = new ClassicalRoom(Material, Available, Slot);
 			break;
-		case GUEST:
-			user = new Guest(name, userName, mail, pass, pass);
+		case PHONEROOM:
+			user = new PhoneRoom(Material, Available, Slot);
 			break;
-		case MANAGER:
-			user = new Manager(name, userName, mail, pass, pass);
+		case VISIOROOM:
+			user = new VisioRoom(Material, Available, Slot);
 			break;
 		default:
 			break;
