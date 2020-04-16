@@ -12,15 +12,15 @@ enum ROLE_TYPE
 public abstract class Room {
 
 	String Material;
-	Int Available;
-	Int Slot;
+	int Available;
+	int Slot;
 	static Scanner input = new Scanner(System.in);
 	
 	public Room() {
 
 	}
 
-	Room(String Material, Int Available, Int Slot) {
+	Room(String Material, int Available, int Slot) {
 		Material = material;
 		Available = available;
 		Slot = slot;
