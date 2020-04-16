@@ -249,7 +249,7 @@ public class Director extends User {
 	public void StartWorking() {
 		boolean keepWorking = true;
 		while (keepWorking) {
-			System.out.println("Que voulez faire");
+			System.out.println("Que voulez faire ?");
 			System.out.println("Choix 1 : Gérer les utilisateurs");
 			System.out.println("Choix 2 : Gérer les salles");
 			System.out.println("Choix 3 : Se déconnecter");
