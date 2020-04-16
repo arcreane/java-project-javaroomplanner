@@ -12,7 +12,7 @@ import User.User;
 public class SimulateBDD {
 
 	static Scanner input = new Scanner(System.in);
-
+	static String codeInvtTest = "CodeInvitation1";
 	//Variable static qui contient tous nos utilisateurs
 	private static Map<String, User> users = new HashMap<String, User>();
 	static Map<String, User> tempusers = new HashMap<String, User>();
