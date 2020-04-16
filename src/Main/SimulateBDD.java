@@ -12,7 +12,7 @@ import User.User;
 public class SimulateBDD {
 
 	static Scanner input = new Scanner(System.in);
-
+	static String codeInvtTest = "CodeInvitation1";
 	//Variable static qui contient tous nos utilisateurs
 	private static Map<String, User> users = new HashMap<String, User>();
 	static Map<String, User> tempusers = new HashMap<String, User>();
@@ -111,13 +111,14 @@ public class SimulateBDD {
 	public static Map<String, User> getTmpUsers() {
 		return tempusers;
 	}
-	public static final Map<String, User> getusers() {
-		return users;
+	public static Map<String, User> getusers() {
+		final Map<String, User> tmp = new HashMap<String, User>(users);
+		return tmp;
 	}
 
 
 	public static void getUsers(Map<String, User> users) {
-		SimulateBDD.users = users;
+		//SimulateBDD.users.replaceAll(function); = users;
 	}
 
 	public static void AddToUsers(Map<String, User> userToValidate) {

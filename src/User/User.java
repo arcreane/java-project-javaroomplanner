@@ -85,7 +85,7 @@ public abstract class User {
 	
 	
 	public abstract void StartWorking();
-
+	
 	public static User ChangeUserRole(User userToModif, ROLE_TYPE newRole) {
 		User user = null;
 		String name = userToModif.Name;
