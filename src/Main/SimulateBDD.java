@@ -16,10 +16,7 @@ public class SimulateBDD {
 	//Variable static qui contient tous nos utilisateurs
 	private static Map<String, User> users = new HashMap<String, User>();
 	public static Map<String, User> tempusers = new HashMap<String, User>();
-	public static Map<String, User> getusers() {
-		return users;			final Map<String, User> tmp = new HashMap<String, User>(users);
-		return tmp;
-	}		}
+	
 	public static void SetUpDatas() {
 		// TODO Auto-generated method stub
 		CreateUsers();
@@ -118,6 +115,10 @@ public class SimulateBDD {
 	public static void getUsers(Map<String, User> users) {
 		SimulateBDD.users = users;			//SimulateBDD.users.replaceAll(function); = users;
 	}		
+	public static Map<String, User> getusers() {
+		final Map<String, User> tmp = new HashMap<String, User>(users);
+		return tmp;
+	}	
 	public static void AddToUsers(Map<String, User> userToValidate) {
 		users.putAll(userToValidate);
 		

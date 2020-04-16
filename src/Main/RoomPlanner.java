@@ -40,11 +40,15 @@ public class RoomPlanner {
 			}
 			else
 			{
-				if(args.equals(SimulateBDD.codeInvtTest))
-				{
+				if (args.equals(SimulateBDD.codeInvtTest)) {
 					System.out.println("Voici les infos de la salle");
-					break;
+					
 				}
+				else {
+					System.out.println("Désolé votre code n'est pas bon !");
+					
+				}
+				break;
 				
 			}
 		}
