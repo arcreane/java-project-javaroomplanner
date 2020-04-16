@@ -24,11 +24,12 @@ public class Manager extends User {
 			System.out.println("Que voulez faire");
 			System.out.println("Choix 1 : Voir mes réunions");
 			System.out.println("Choix 2 : Réservation");
-			System.out.println("Choix 4 : Se déconnecter");
+			System.out.println("Choix 3 : Se déconnecter");
 			String gestionReunion = input.nextLine();
 			switch(gestionReunion) {
 			case "1":
-				//UserAll();
+				System.out.println("Voici la liste de vos réservations :");
+				//myReservation();
 				break;
 				
 			case "2" :
@@ -36,9 +37,8 @@ public class Manager extends User {
 				while (getReservation) {
 					System.out.println("Bienvenue dans la Gestions des Réservation : Que voulez-vous faire ?");
 					System.out.println("Choix 1 : Créer une reservation");
-					System.out.println("Choix 2 : Afficher mes réservation");
-					System.out.println("Choix 3 : Modifier mes réservation");
-					System.out.println("Choix 4 : Supprimer mes utilisateur");
+					System.out.println("Choix 2 : Modifier mes réservations");
+					System.out.println("Choix 3 : Supprimer mes réservations");
 					String getReserve = input.nextLine();
 					switch(getReserve)
 					{
@@ -46,21 +46,21 @@ public class Manager extends User {
 						System.out.println("Vous pouvez désormais incricre une nouvelle salle :");
 						//createReservation();
 						break;
+				
 					case "2":
-						System.out.println("Voici la liste de vos réservations :");
-						//myReservation();
-						break;
-					case "3":
 						System.out.println("Voici la liste de vos réservations que vous pouvez modifier,  :");
 						//myReservationUpdate();
 						break;
-					case "4":
+					case "3":
 						System.out.println("Voici la liste de vos réservations que vous pouvez supprimer  :");
 						//myReservationUDelete();
 						break;
 					}
 				};
-				
+			case "3":
+				//Se déconnecter
+				keepWorking = false;
+				break;
 			};
 		}
 	}
