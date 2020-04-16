@@ -30,13 +30,13 @@ public class SimulateBDD {
 	public static void CreateUsers()
 	{
 		Director myDirect = new Director("DAM", "Tony", "tony@gmail.com", "tony","tony" );
-		getUsers().put(myDirect.GetMail(), myDirect);
+		users.put(myDirect.GetMail(), myDirect);
 		Manager myManager1 = new Manager("Compoint", "Laure", "laure@compoint.fr", "azertyuiop","azertyuiop" );
 		Manager myManager2 = new Manager("Larpenteur", "Coralie", "coralie@larpenteur.fr", "azertyuiop","azertyuiop" );
 		Manager myManager3 = new Manager("Coco", "Marie-Ange", "marie-ange@coco.fr", "azertyuiop","azertyuiop" );
-		getUsers().put(myManager1.GetMail(), myManager1);
-		getUsers().put(myManager2.GetMail(), myManager2);
-		getUsers().put(myManager3.GetMail(), myManager3);
+		users.put(myManager1.GetMail(), myManager1);
+		users.put(myManager2.GetMail(), myManager2);
+		users.put(myManager3.GetMail(), myManager3);
 		Collaborator myCollaborator1 = new Collaborator("Crevette", "Rouge", "crevette@rouge.fr", "azertyuiop","azertyuiop" );
 		Collaborator myCollaborator2 = new Collaborator("Crevette", "Rose", "crevette@rose.fr", "azertyuiop","azertyuiop" );
 		/*
@@ -55,8 +55,8 @@ public class SimulateBDD {
 		 * Collaborator("Crevette", "Noire", "crevette@noire.fr",
 		 * "azertyuiop","azertyuiop" );
 		 */
-		getUsers().put(myCollaborator1.GetMail(), myCollaborator1);
-		getUsers().put(myCollaborator2.GetMail(), myCollaborator2);
+		users.put(myCollaborator1.GetMail(), myCollaborator1);
+		users.put(myCollaborator2.GetMail(), myCollaborator2);
 		/*
 		 * getUsers().put(myCollaborator3.GetMail(), myCollaborator3);
 		 * getUsers().put(myCollaborator4.GetMail(), myCollaborator4);
@@ -81,7 +81,7 @@ public class SimulateBDD {
 		String mail= input.nextLine();
 		System.out.println("Quel est votre mot de passe ?");
 		String mdp = input.nextLine();
-		User myUser = (User)getUsers().get(mail);
+		User myUser = users.get(mail);
 			
 		if(myUser != null && myUser.checkPassword(mdp))
 		{
@@ -108,19 +108,31 @@ public class SimulateBDD {
 		
 	}
 
-	public static Map<String, User> GetTmpUsers() {
+	public static Map<String, User> getTmpUsers() {
 		return tempusers;
 	}
-	public static Map<String, User> Getusers() {
-		return getUsers();
-	}
-
-	public static Map<String, User> getUsers() {
+	public static final Map<String, User> getusers() {
 		return users;
 	}
 
-	public static void setUsers(Map<String, User> users) {
+
+	public static void getUsers(Map<String, User> users) {
 		SimulateBDD.users = users;
+	}
+
+	public static void AddToUsers(Map<String, User> userToValidate) {
+		users.putAll(userToValidate);
+		
+	}
+
+	public static void addUser(String getMail, User user) {
+		users.put(getMail, user);
+		
+	}
+
+	public static void removeUser(String getmailuserremove) {
+		users.remove(getmailuserremove);
+		
 	}
 
 
