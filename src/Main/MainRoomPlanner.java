@@ -5,7 +5,7 @@ public class MainRoomPlanner {
 
 	public static void main(String[] args) {
 		SimulateBDD.SetUpDatas();
-		RoomPlanner.StartPlanning();
+		RoomPlanner.StartPlanning(args[0]);
 	}
 }
 
