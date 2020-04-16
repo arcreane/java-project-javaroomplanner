@@ -83,21 +83,21 @@ public abstract class Room {
 		switch (newRole)
 		{
 		case AMPHITHEATER:
-			user = new Amphitheater(Material, Available, Slot);
+			room = new Amphitheater(Material, Available, Slot);
 			break;
 		case CLASSICALROOM:
-			user = new ClassicalRoom(Material, Available, Slot);
+			room = new ClassicalRoom(Material, Available, Slot);
 			break;
 		case PHONEROOM:
-			user = new PhoneRoom(Material, Available, Slot);
+			room = new PhoneRoom(Material, Available, Slot);
 			break;
 		case VISIOROOM:
-			user = new VisioRoom(Material, Available, Slot);
+			room = new VisioRoom(Material, Available, Slot);
 			break;
 		default:
 			break;
 		
 		}
-		return user;
+		return room;
 	}
 }
