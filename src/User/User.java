@@ -1,7 +1,13 @@
 package User;
 
 import java.util.Scanner;
-
+enum ROLE_TYPE
+{
+	DIRECTOR,
+	MANAGER,
+	COLLABORATOR,
+	GUEST
+}
 public abstract class User {
 
 	String Name;
@@ -79,4 +85,31 @@ public abstract class User {
 	
 	
 	public abstract void StartWorking();
+	
+	public static User ChangeUserRole(User userToModif, ROLE_TYPE newRole) {
+		User user = null;
+		String name = userToModif.Name;
+		String userName = userToModif.Username;
+		String mail = userToModif.Mail;
+		String pass = userToModif.Password;
+		switch (newRole)
+		{
+		case COLLABORATOR:
+			user = new Collaborator(name, userName, mail, pass, pass);
+			break;
+		case DIRECTOR:
+			user = new Director(name, userName, mail, pass, pass);
+			break;
+		case GUEST:
+			user = new Guest(name, userName, mail, pass, pass);
+			break;
+		case MANAGER:
+			user = new Manager(name, userName, mail, pass, pass);
+			break;
+		default:
+			break;
+		
+		}
+		return user;
+	}
 }
