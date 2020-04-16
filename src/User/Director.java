@@ -170,7 +170,7 @@ public class Director extends User {
 				while (gestionSalles) {
 					System.out.println("Bienvenue dans la Gestions des Salles : Que voulez-vous faire ?");
 					System.out.println("Choix 1 : Voir toutes les salles");
-					System.out.println("Choix 3 : Voir les différentes réservations.");
+					System.out.println("Choix 2 : Voir les différentes réservations.");
 					System.out.println("Choix 3 : Créer une nouvelle salle");
 					System.out.println("Choix 4 : Afficher une salle");
 					System.out.println("Choix 5 : Modifier une salle");
