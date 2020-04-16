@@ -141,6 +141,32 @@ public class Director extends User {
 		System.out.print(InfoToGet);
 		return input.nextLine();
 	}
+	
+	
+	@Override
+	public void StartWorking() {
+		boolean keepWorking = true;
+		while (keepWorking) {
+			System.out.println("Que voulez faire ?");
+			System.out.println("Choix 1 : Gérer les utilisateurs");
+			System.out.println("Choix 2 : Gérer les salles");
+			System.out.println("Choix 3 : Se déconnecter");
+			String getionInterface = input.nextLine();
+			
+			switch(getionInterface) {
+			case "1" :
+				UserManagement();
+			case "2":
+				 RoomManagement();
+			case "3":
+				//Se déconnecter
+				keepWorking = false;
+				break;
+			}
+		}
+
+	}
+	
 	private void UserManagement() {
 		boolean gestionUser = true;
 		while (gestionUser) {
@@ -193,6 +219,7 @@ public class Director extends User {
 	
 		}};
 	}
+	
 	private void RoomManagement() {
 		boolean gestionSalles = true;
 		while (gestionSalles) {
@@ -244,28 +271,5 @@ public class Director extends User {
 		
 		
 		}};
-	}
-	@Override
-	public void StartWorking() {
-		boolean keepWorking = true;
-		while (keepWorking) {
-			System.out.println("Que voulez faire ?");
-			System.out.println("Choix 1 : Gérer les utilisateurs");
-			System.out.println("Choix 2 : Gérer les salles");
-			System.out.println("Choix 3 : Se déconnecter");
-			String getionInterface = input.nextLine();
-			
-			switch(getionInterface) {
-			case "1" :
-				UserManagement();
-			case "2":
-				 RoomManagement();
-			case "3":
-				//Se déconnecter
-				keepWorking = false;
-				break;
-			}
-		}
-
 	}
 }
