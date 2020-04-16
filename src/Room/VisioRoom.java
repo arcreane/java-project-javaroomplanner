@@ -10,7 +10,7 @@ public class VisioRoom extends Room {
 
 	}
 
-	public VisioRoom(String material, Int available, Int slot) {
+	public VisioRoom(String material, int available, int slot) {
 		super(material, available, slot);
 		// TODO Auto-generated constructor stub
 	}

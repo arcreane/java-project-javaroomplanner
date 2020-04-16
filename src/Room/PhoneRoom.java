@@ -10,7 +10,7 @@ public class PhoneRoom extends Room {
 
 	}
 
-	public PhoneRoom(String material, Int available, Int slot) {
+	public PhoneRoom(String material, int available, int slot) {
 		super(material, available, slot);
 		// TODO Auto-generated constructor stub
 	}
