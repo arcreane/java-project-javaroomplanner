@@ -71,7 +71,6 @@ public abstract class Room {
 	}
 
 	public void JoinMeeting() {
-		test
 	}	
 	
 	public abstract void StartWorking();
