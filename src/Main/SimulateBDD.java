@@ -29,16 +29,16 @@ public class SimulateBDD {
 	/// enregistrement des donn�es dans un fichier
 	public static void CreateUsers()
 	{
-		Director myDirect = new Director("DAM", "Tony", "tony@gmail.com", "tony","tony" );
+		Director myDirect = new Director("DAM", "Tony", "tony@gmail.com", "tony","tony", "Directeur" );
 		users.put(myDirect.GetMail(), myDirect);
-		Manager myManager1 = new Manager("Compoint", "Laure", "laure@compoint.fr", "azertyuiop","azertyuiop" );
-		Manager myManager2 = new Manager("Larpenteur", "Coralie", "coralie@larpenteur.fr", "azertyuiop","azertyuiop" );
-		Manager myManager3 = new Manager("Coco", "Marie-Ange", "marie-ange@coco.fr", "azertyuiop","azertyuiop" );
+		Manager myManager1 = new Manager("Compoint", "Laure", "laure@compoint.fr", "azertyuiop","azertyuiop", "manager" );
+		Manager myManager2 = new Manager("Larpenteur", "Coralie", "coralie@larpenteur.fr", "azertyuiop","azertyuiop", "manager"  );
+		Manager myManager3 = new Manager("Coco", "Marie-Ange", "marie-ange@coco.fr", "azertyuiop","azertyuiop", "manager"  );
 		users.put(myManager1.GetMail(), myManager1);
 		users.put(myManager2.GetMail(), myManager2);
 		users.put(myManager3.GetMail(), myManager3);
-		Collaborator myCollaborator1 = new Collaborator("Crevette", "Rouge", "crevette@rouge.fr", "azertyuiop","azertyuiop" );
-		Collaborator myCollaborator2 = new Collaborator("Crevette", "Rose", "crevette@rose.fr", "azertyuiop","azertyuiop" );
+		Collaborator myCollaborator1 = new Collaborator("Crevette", "Rouge", "crevette@rouge.fr", "azertyuiop","azertyuiop" , "collabortor");
+		Collaborator myCollaborator2 = new Collaborator("Crevette", "Rose", "crevette@rose.fr", "azertyuiop","azertyuiop", "collabortor" );
 		/*
 		 * Collaborator myCollaborator3 = new Collaborator("Crevette", "Jaune",
 		 * "crevette@jaune.fr", "azertyuiop","azertyuiop" ); Collaborator

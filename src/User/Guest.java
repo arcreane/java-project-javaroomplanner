@@ -6,8 +6,8 @@ public class Guest extends User {
 	Guest(){
 		
 	}
-	Guest(String name, String username, String mail, String password, String comfirmpassword) {
-		super(name, username, mail, password, comfirmpassword);
+	Guest(String name, String username, String mail, String password, String comfirmpassword, String role) {
+		super(name, username, mail, password, comfirmpassword, role);
 		// TODO Auto-generated constructor stub
 	}
 	public static Guest createnewuser() {
