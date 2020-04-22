@@ -10,24 +10,24 @@ enum ROLE_TYPE
 	VISIOROOM
 }
 public abstract class Room {
-
+	String Name;
 	String Material;
-	int Available;
-	int Slot;
+	String Available;
+	String Slot;
 	static Scanner input = new Scanner(System.in);
 	
 	public Room() {
 
 	}
 
-	Room(String Material, int Available, int Slot) {
-		Material = material;
-		Available = available;
-		Slot = slot;
-	}
+	Room(String Name, String Material, String Available, String Slot) {
+		public String GetName1() {
+			return Name;
+		}
+	
 	
 
-	static public Room CreateRoom() {
+	static public Room CreateRooms() {
 		System.out.println(
 				"Pour créer une salle, veuillez nous fournir les informations suivantes :\n Nom, Prenom, Mail , Password");
 	
@@ -70,10 +70,9 @@ public abstract class Room {
 		return input.nextLine();
 	}
 
-	public void JoinMeeting() {
+	public static void JoinMeeting() {
 	}	
 	
-	public abstract void StartWorking();
 	
 	public static Room ChangeRoomRole(Room roomToModif, ROLE_TYPE newRole) {
 		Room room = null;
@@ -99,5 +98,9 @@ public abstract class Room {
 		
 		}
 		return room;
+	}
+
+	public String GetName() {
+		return Name;
 	}
 }

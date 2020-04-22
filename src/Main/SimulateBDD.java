@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import Room.PhoneRoom;
+import Room.Room;
+import Room.VisioRoom;
 import User.Collaborator;
 import User.Director;
 import User.Manager;
@@ -17,6 +20,10 @@ public class SimulateBDD {
 	private static Map<String, User> users = new HashMap<String, User>();
 	public static Map<String, User> tempusers = new HashMap<String, User>();
 	
+	//Variable static qui contient tous nos utilisateurs
+	private static Map<String,Room> rooms = new HashMap<String, Room>();
+	public static Map<String, Room> temprooms = new HashMap<String, Room>();
+	
 	public static void SetUpDatas() {
 		// TODO Auto-generated method stub
 		CreateUsers();
@@ -29,7 +36,7 @@ public class SimulateBDD {
 	/// enregistrement des donn�es dans un fichier
 	public static void CreateUsers()
 	{
-		Director myDirect = new Director("DAM", "Tony", "tony@gmail.com", "tony","tony", "Directeur" );
+		Director myDirect = new Director("DAM", "Tony", "tony@dam.fr", "dam","dam", "Directeur" );
 		users.put(myDirect.GetMail(), myDirect);
 		Manager myManager1 = new Manager("Compoint", "Laure", "laure@compoint.fr", "azertyuiop","azertyuiop", "manager" );
 		Manager myManager2 = new Manager("Larpenteur", "Coralie", "coralie@larpenteur.fr", "azertyuiop","azertyuiop", "manager"  );
@@ -39,38 +46,15 @@ public class SimulateBDD {
 		users.put(myManager3.GetMail(), myManager3);
 		Collaborator myCollaborator1 = new Collaborator("Crevette", "Rouge", "crevette@rouge.fr", "azertyuiop","azertyuiop" , "collabortor");
 		Collaborator myCollaborator2 = new Collaborator("Crevette", "Rose", "crevette@rose.fr", "azertyuiop","azertyuiop", "collabortor" );
-		/*
-		 * Collaborator myCollaborator3 = new Collaborator("Crevette", "Jaune",
-		 * "crevette@jaune.fr", "azertyuiop","azertyuiop" ); Collaborator
-		 * myCollaborator4 = new Collaborator("Crevette", "Orange",
-		 * "crevette@orange.fr", "azertyuiop","azertyuiop" ); Collaborator
-		 * myCollaborator5 = new Collaborator("Crevette", "Vert", "crevette@vert.fr",
-		 * "azertyuiop","azertyuiop" ); Collaborator myCollaborator6 = new
-		 * Collaborator("Crevette", "Bleu", "crevette@bleu.fr",
-		 * "azertyuiop","azertyuiop" ); Collaborator myCollaborator7 = new
-		 * Collaborator("Crevette", "Violet", "crevette@violet.fr",
-		 * "azertyuiop","azertyuiop" ); Collaborator myCollaborator8 = new
-		 * Collaborator("Crevette", "Marron", "crevette@marron.fr",
-		 * "azertyuiop","azertyuiop" ); Collaborator myCollaborator9 = new
-		 * Collaborator("Crevette", "Noire", "crevette@noire.fr",
-		 * "azertyuiop","azertyuiop" );
-		 */
 		users.put(myCollaborator1.GetMail(), myCollaborator1);
 		users.put(myCollaborator2.GetMail(), myCollaborator2);
-		/*
-		 * users.put(myCollaborator3.GetMail(), myCollaborator3);
-		 * users.put(myCollaborator4.GetMail(), myCollaborator4);
-		 * users.put(myCollaborator5.GetMail(), myCollaborator5);
-		 * users.put(myCollaborator6.GetMail(), myCollaborator6);
-		 * users.put(myCollaborator7.GetMail(), myCollaborator7);
-		 * users.put(myCollaborator8.GetMail(), myCollaborator8);
-		 * users.put(myCollaborator9.GetMail(), myCollaborator9);
-		 */
+
 	}
 	
 	static public void CreateRooms()
 	{
-		
+		Room myRoom1 = new VisioRoom("Visio Room", "Ecran", "Retro-projecteur", "15" );
+		rooms.put(myRoom1.GetName(), myRoom1);
 	}
 	
 
@@ -132,6 +116,11 @@ public class SimulateBDD {
 	public static void removeUser(String getmailuserremove) {
 		users.remove(getmailuserremove);
 		
+	}
+
+	public static Map<String, Room> getRooms() {
+		final Map<String, Room> tmp = new HashMap<String, Room>(rooms);
+		return tmp;
 	}
 
 

@@ -3,6 +3,7 @@ package User;
 import java.util.Map;
 
 import Main.SimulateBDD;
+import Room.Room;
 
 public class Director extends User {
 
@@ -162,7 +163,7 @@ public class Director extends User {
 			case "1" :
 				UserManagement();
 			case "2":
-				 RoomManagement();
+				RoomManagement();
 			case "3":
 				//Se déconnecter
 				keepWorking = false;
@@ -249,7 +250,7 @@ public class Director extends User {
 			
 		case "1" :
 			System.out.println("Voici la liste des salles :");
-			//UserAll();
+			DisplayRoomAll();
 			break;
 			
 		case "2" :
@@ -259,21 +260,18 @@ public class Director extends User {
 			
 		case "3":
 			System.out.println("Vous pouvez désormais incricre une nouvelle salle :");
-			//User user = User.RegisterUser();
-			//SimulateBDD.getUsers().put(user.GetMail(),user);
+			Room room = Room.CreateRoom();
+			SimulateBDD.getRooms().put(room.GetName(),room);
 			System.out.println("Vous venez d'enregistrer votre nouvelle salle :");
 			break;
 			
 		case "5":
 			System.out.println("Voici la liste des salles que vous pouvez modifier  :");
+			RoomUpdate();
 		
 		case "6" :
 			System.out.println("Voici la liste des salles que vous pouvez supprimer,  :");
-			//UserAll();
-			System.out.println("Taper le nom de la salle que vous voulez supprimer :");
-			//String getmailuserremove = input.nextLine();
-			//SimulateBDD.getUsers().remove(getmailuserremove);
-			System.out.println("Votre salle : "+ /*getmailuserremove +*/ "a bien été supprimer");
+			RoomDelete();
 			break;	
 		case "7":
 			//Se déconnecter
@@ -283,4 +281,21 @@ public class Director extends User {
 		
 		}};
 	}
+
+	private void RoomDelete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void RoomUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void DisplayRoomAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
