@@ -22,7 +22,7 @@ public class SimulateBDD {
 	
 	//Variable static qui contient tous nos utilisateurs
 	private static Map<String,Room> rooms = new HashMap<String, Room>();
-	public static Map<String, Room> temprooms = new HashMap<String, Room>();
+	
 	
 	public static void SetUpDatas() {
 		// TODO Auto-generated method stub
@@ -53,8 +53,8 @@ public class SimulateBDD {
 	
 	static public void CreateRooms()
 	{
-		Room myRoom1 = new VisioRoom("Visio Room", "Ecran", "Retro-projecteur", "15" );
-		rooms.put(myRoom1.GetName(), myRoom1);
+		Room myRoom1 = new VisioRoom("Visio Room", "Ecran", 3, 15 );
+		rooms.put(myRoom1.GetRoomName(), myRoom1);
 	}
 	
 
@@ -118,9 +118,16 @@ public class SimulateBDD {
 		
 	}
 
+	
 	public static Map<String, Room> getRooms() {
-		final Map<String, Room> tmp = new HashMap<String, Room>(rooms);
-		return tmp;
+		// TODO Auto-generated method stub
+		final Map<String, Room> room = new HashMap<String, Room>(rooms);
+		return room;
+	
+	}
+	public static void addRoom(String getRoom, Room room) {
+		rooms.put(getRoom, room);
+		
 	}
 
 

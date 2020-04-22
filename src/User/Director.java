@@ -261,7 +261,7 @@ public class Director extends User {
 		case "3":
 			System.out.println("Vous pouvez désormais incricre une nouvelle salle :");
 			Room room = Room.CreateRoom();
-			SimulateBDD.getRooms().put(room.GetName(),room);
+			SimulateBDD.addRoom(room.GetRoomName(),room);
 			System.out.println("Vous venez d'enregistrer votre nouvelle salle :");
 			break;
 			
@@ -290,11 +290,12 @@ public class Director extends User {
 	private void RoomUpdate() {
 		// TODO Auto-generated method stub
 		
+		
 	}
 
 	public static void DisplayRoomAll() {
 		// TODO Auto-generated method stub
-		
+		Room.RoomAll();
 	}
 
 	
