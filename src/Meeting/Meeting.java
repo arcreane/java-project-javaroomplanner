@@ -24,10 +24,11 @@ public class Meeting {
 
 	}
 
-	Meeting(String name, String date, String starttime, User organisateur, User participants, String type) {
+	Meeting(String name, String date, String starttime,String timemeeting, User organisateur, User participants, String type) {
 		Name = name;
 	    Date = date;
 	    StartTime = starttime;
+	    TimeMeeting = timemeeting;
 		Type = type;
 		Organisateur = organisateur;
 		Participants = participants;

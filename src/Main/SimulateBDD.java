@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import Meeting.MeetingObligatory;
+import Meeting.Meeting;
+import Room.Amphitheater;
 import Room.PhoneRoom;
 import Room.Room;
 import Room.VisioRoom;
@@ -23,11 +26,15 @@ public class SimulateBDD {
 	//Variable static qui contient tous nos utilisateurs
 	private static Map<String,Room> rooms = new HashMap<String, Room>();
 	
+	//Variable static qui contient tous nos réunions
+	private static Map<String,Meeting> meetings = new HashMap<String, Meeting>();
+	
 	
 	public static void SetUpDatas() {
 		// TODO Auto-generated method stub
 		CreateUsers();
 		CreateRooms();
+		CreateMeeting();
 	}
 	
 	///	Fonctions (CreateUSers et CreateRooms) servent uniquement de plastron 
@@ -58,9 +65,9 @@ public class SimulateBDD {
 	}
 	
 	public static void CreateMeeting() {
-		//String name, String date, String starttime, User organisateur, User participants, String type
-		Meeting AG = new Amphitheater("Assemblée Générale Avril 2020", "24/04/2020", "15:30",  );
-		rooms.put(AG.GetMeetingName(), AG);
+		//String name, String date, String starttime, String timemeeting User organisateur, User participants, String type
+		Meeting AG = new MeetingObligatory("Assemblée Générale Avril 2020", "24/04/2020", "15:30", "02:00", "Director", "UserAll()", "Obligatoire" );
+		meetings.put(AG.GetMeetingName(), AG);
 	}
 	
 	static User Login()
