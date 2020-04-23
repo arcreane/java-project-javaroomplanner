@@ -6,7 +6,7 @@ import Main.SimulateBDD;
 import Meeting.Meeting;
 import Room.Room;
 
-public class Director extends User {
+public class Director extends Manager {
 
 	Director() {
 
