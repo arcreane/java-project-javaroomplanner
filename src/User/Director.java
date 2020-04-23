@@ -5,7 +5,7 @@ import java.util.Map;
 import Main.SimulateBDD;
 import Room.Room;
 
-public class Director extends User {
+public class Director extends Manager {
 
 	Director() {
 
