@@ -67,6 +67,22 @@ public class Meeting {
 		
 	}
 	
+	public static void DisplayMeetingOne() {
+		// TODO Auto-generated method stub
+		String getnamemeetingunique = input.nextLine();
+		Map<String, Meeting> meetingToAfficherOne = SimulateBDD.getmeeting();
+		Meeting meetingunique = meetingToAfficherOne.get(getnamemeetingunique);
+		System.out.println("-----------------------------------");
+		System.out.println("Name :" +  meetingunique.Name );
+		System.out.println("Date :" +  meetingunique.Date );
+		System.out.println("Start Time :" +  meetingunique.StartTime );
+		System.out.println("Time Meeting :" +  meetingunique.TimeMeeting );
+		System.out.println("Type :" +  meetingunique.Type );
+		System.out.println("Organisateurs :" +  meetingunique.Organisateur );
+		System.out.println("Participants :" +  meetingunique.Participants );
+		System.out.println("-----------------------------------");
+	}
+	
 	static public Meeting CreateMeeting() { 
 		System.out.println(
 				"Pour créer une reunion, veuillez nous fournir les informations suivantes :\n Nom de la reunion, la date , l'heure de la reunion et le temps de la duréé de la réunion, l'organisateur, et les partipants");

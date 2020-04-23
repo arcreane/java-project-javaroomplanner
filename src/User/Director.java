@@ -234,7 +234,7 @@ public class Director extends Manager {
 
 	private void DisplayMeetingOne() {
 		// TODO Auto-generated method stub
-		
+		Meeting.DisplayMeetingOne();
 	}
 
 	private void MeetingDelete() {
