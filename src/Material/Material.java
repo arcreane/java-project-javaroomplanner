@@ -1,4 +1,4 @@
-package Room;
+package Material;
 
 abstract class Material {
 	//test
