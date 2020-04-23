@@ -12,6 +12,7 @@ import Room.Room;
 import Room.VisioRoom;
 import User.Manager;
 import User.User;
+// import jdk.internal.util.xml.impl.Pair;
 
 
 public class Meeting {
@@ -29,7 +30,7 @@ public class Meeting {
 	static Scanner input = new Scanner(System.in);
 	
 	public Meeting() {
-
+		// Pair<String, String> p;
 	}
 	
 	public Map<String, User> getParticipants() {
@@ -83,7 +84,7 @@ public class Meeting {
 		System.out.println("-----------------------------------");
 	}
 	
-	static public Meeting CreateMeeting() { 
+	static public Meeting CreateMeeting(Manager organisateur, Map<String, User> participants) { 
 		System.out.println(
 				"Pour créer une reunion, veuillez nous fournir les informations suivantes :\n Nom de la reunion, la date , l'heure de la reunion et le temps de la duréé de la réunion, l'organisateur, et les partipants");
 	
@@ -101,11 +102,11 @@ public class Meeting {
 		switch(Type)
 		{
 			case "1":
-				meeting = new MeetingObligatory(Name,Date, StartTime, TimeMeeting, Organisateur, Participants, Type);
+				meeting = new MeetingObligatory(Name,Date, StartTime, TimeMeeting, organisateur, participants, Type);
 				break;
 				
 			case "2":
-				meeting = new MeetingOptional(Name,Date, StartTime, TimeMeeting, Organisateur, Participants, Type);
+				meeting = new MeetingOptional(Name,Date, StartTime, TimeMeeting, organisateur, participants, Type);
 				break;
 			
 		

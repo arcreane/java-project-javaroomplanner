@@ -227,7 +227,8 @@ public class Director extends Manager {
 
 	private void MeetingCreate() {
 		// TODO Auto-generated method stub
-		Meeting meeting = Meeting.CreateMeeting();
+		Meeting meeting = Meeting.CreateMeeting(this, null);
+		// Définir qui est l'organisateur du meeting et trouver la liste des participants
 		SimulateBDD.addMeeting(meeting.GetMeetingName(),meeting);
 		System.out.println("Vous venez d'enregistrer votre nouvelle salle :");
 	}
