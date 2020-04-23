@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import Meeting.Meeting;
+import Meeting.MeetingObligatory;
 import Room.PhoneRoom;
 import Room.Room;
 import Room.VisioRoom;
@@ -23,11 +25,14 @@ public class SimulateBDD {
 	//Variable static qui contient tous nos utilisateurs
 	private static Map<String,Room> rooms = new HashMap<String, Room>();
 	
+	//Variable static qui contient tous nos réunions
+	private static Map<String,Meeting> meetings = new HashMap<String, Meeting>();
 	
 	public static void SetUpDatas() {
 		// TODO Auto-generated method stub
 		CreateUsers();
 		CreateRooms();
+		CreateMeeting();
 	}
 	
 	///	Fonctions (CreateUSers et CreateRooms) servent uniquement de plastron 
@@ -57,7 +62,11 @@ public class SimulateBDD {
 		rooms.put(myRoom1.GetRoomName(), myRoom1);
 	}
 	
-
+	static public  void CreateMeeting() {
+		//String name, String date, String starttime, String timemeeting, User organisateur, User participants, String type
+		Meeting AG = new MeetingObligatory("Assemblée Générale Avril 2020", "24/04/2020", "15:30", "02:00", (Manager)users.get("tony@dam.fr") , users , "Obligatoire" );
+		meetings.put(AG.GetMeetingName(), AG);
+	}
 	
 	static User Login()
 	{
@@ -128,6 +137,17 @@ public class SimulateBDD {
 	public static void addRoom(String getRoom, Room room) {
 		rooms.put(getRoom, room);
 		
+	}
+
+	public static Map<String, Meeting> getmeeting() {
+		// TODO Auto-generated method stub
+		final Map<String, Meeting> meeting = new HashMap<String, Meeting>(meetings);
+		return meeting;
+	}
+
+	public static void addMeeting(String getMeetingName, Meeting meeting) {
+		// TODO Auto-generated method stub
+		meetings.put(getMeetingName, meeting);
 	}
 
 
