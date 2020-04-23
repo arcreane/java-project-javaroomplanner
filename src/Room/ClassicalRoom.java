@@ -1,26 +1,27 @@
 package Room;
+import Material.Material;
+import Material.Screen;
+import Material.Sound;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
 
 import Main.SimulateBDD;
 import User.Director;
 
 public class ClassicalRoom extends Room {
 
+
+
 	public ClassicalRoom(String name, int slot) {
+		
 		super(name, slot);
 		// TODO Auto-generated constructor stub
 	}
-	
-	ClassicalRoom() {
 
-	}
 
-	public static Room createnewroom() {
-		Room newRoom;
-
-		return null;
-	}
 
 	
 	// Verification de la disponibilité de la Room
