@@ -16,7 +16,7 @@ public abstract class Room {
 	static Scanner input = new Scanner(System.in);
 	
 	public Room() {
-		System.out.println("test");
+
 	}
 
 	Room(String name, String material, int available, int slot) { 
@@ -71,10 +71,8 @@ public abstract class Room {
 		return input.nextLine();
 	}
 	private static int GetRoomInt(String InfoToGet) { 
-		
-		// pour permettre d'ecrire un int a l'user et plus un string
+// pour permettre d'ecrire un int a l'user et plus un string
 		System.out.print(InfoToGet);
-		
 		return input.nextInt();
 	}
 	public static void JoinMeeting() {
@@ -84,10 +82,7 @@ public abstract class Room {
 	public abstract void StartWorking();
 
 	public static void RoomAll() { 
-		
-		// methode dans room pour appeler toute les room en meme temps 
-		// ( methode appeler dans la partie director )
-		
+		// methode dans room pour appeler toute les room en meme temps ( methode appeler dans la partie director )
 		Map<String, Room> roomToAfficher = SimulateBDD.getRooms();
 		roomToAfficher.forEach((roomAll, room)->{
 			System.out.println("-----------------------------------");
