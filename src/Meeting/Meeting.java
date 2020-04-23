@@ -16,6 +16,7 @@ public class Meeting {
 	//Materiel materiel;
 	User Organisateur;
 	User Participants;
+	//String Partager;
 	
 	static Scanner input = new Scanner(System.in);
 	
