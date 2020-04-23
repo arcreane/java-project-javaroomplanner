@@ -22,15 +22,18 @@ public class Meeting {
 	String StartTime;
 	String TimeMeeting;
 	String Type;
-	static //Materiel materiel;
 	Manager Organisateur;
-	static Map<String, User> Participants;
+	Map<String, User> Participants;
 	//String Partager;
 	
 	static Scanner input = new Scanner(System.in);
 	
 	public Meeting() {
 
+	}
+	
+	public Map<String, User> getParticipants() {
+		return Participants;
 	}
 
 	Meeting(String name, String date, String starttime,String timemeeting, Manager organisateur, Map<String, User> participants, String type) {
@@ -67,11 +70,8 @@ public class Meeting {
 		
 	}
 	
-	public static void DisplayMeetingOne() {
+	public static void DisplayMeetingOne(Meeting meetingunique) {
 		// TODO Auto-generated method stub
-		String getnamemeetingunique = input.nextLine();
-		Map<String, Meeting> meetingToAfficherOne = SimulateBDD.getmeeting();
-		Meeting meetingunique = meetingToAfficherOne.get(getnamemeetingunique);
 		System.out.println("-----------------------------------");
 		System.out.println("Name :" +  meetingunique.Name );
 		System.out.println("Date :" +  meetingunique.Date );

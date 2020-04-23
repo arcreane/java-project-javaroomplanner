@@ -24,7 +24,7 @@ public class ClassicalRoom extends Room {
 
 	
 	// Verification de la disponibilité de la Room
-	public void slot() {
+	public void hasFreeSlot() {
 		boolean freeSlot = true;
 		while (freeSlot) {
 			System.out.print("Places disponibles dans la salle :");

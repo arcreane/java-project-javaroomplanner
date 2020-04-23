@@ -234,7 +234,10 @@ public class Director extends Manager {
 
 	private void DisplayMeetingOne() {
 		// TODO Auto-generated method stub
-		Meeting.DisplayMeetingOne();
+		String getnamemeetingunique = input.nextLine();
+		Map<String, Meeting> meetingToAfficherOne = SimulateBDD.getmeeting();
+		Meeting meetingunique = meetingToAfficherOne.get(getnamemeetingunique);
+		Meeting.DisplayMeetingOne(meetingunique);
 	}
 
 	private void MeetingDelete() {

@@ -70,6 +70,9 @@ public class Manager extends User {
 	}
 	private void createReservation() {
 		// TODO Auto-generated method stub
+		// Voir la liste des collaborateurs
+		// Selectionner les collaborateurs qu'il veut à son meeting
+		// Créer son meeting
 		
 	}
 	private void myReservationUpdate() {

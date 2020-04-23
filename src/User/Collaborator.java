@@ -1,9 +1,11 @@
 package User;
 
+import java.util.List;
 import java.util.Map;
 import User.Director;
 
 import Main.SimulateBDD;
+import Meeting.Meeting;
 import Room.Room;
 
 public class Collaborator extends User {
@@ -30,9 +32,9 @@ public class Collaborator extends User {
 			switch(getuser)
 			{
 			case "1" : 	System.out.println("Voici la liste des salles :");
-			Director.DisplayRoomAll();
-			case "2" : System.out.println("Pour rejoindre une salle, taper son nom, puis écrivez rejoindre");
-			Room.JoinMeeting();
+			DisplayMyRooms();
+			case "2" : System.out.println("Acceptez-vous de rejoindre la réunion ?");
+			JoinMeeting();
 				
 				break;
 			case "3":
@@ -42,4 +44,17 @@ public class Collaborator extends User {
 		}
 		
 	}
+
+	
+	private void DisplayMyRooms() {
+		// TODO Auto-generated method stub
+		List<Meeting> listmeeting = SimulateBDD.getmeetings(this);
+		
+		// Pour évité la duplication des codes, on va créer une méthode static 
+		// pour afficher de maniere générique un meeting particulier
+		for (Meeting meeting : listmeeting) {
+			Meeting.DisplayMeetingOne(meeting);
+		}
+	}
+	
 }

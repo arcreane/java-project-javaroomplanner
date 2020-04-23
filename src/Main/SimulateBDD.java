@@ -1,6 +1,8 @@
 package Main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -143,6 +145,30 @@ public class SimulateBDD {
 		// TODO Auto-generated method stub
 		final Map<String, Meeting> meeting = new HashMap<String, Meeting>(meetings);
 		return meeting;
+	}
+	
+	public static List<Meeting> getmeetings(User user) {
+		
+		// TODO Auto-generated method stub
+		final List<Meeting> listMeeting = new ArrayList<Meeting>();
+		
+		
+		// Préparation d'une liste de meeting à envoyé, parsé tous les meetings existants, 
+		// a chaque itération on regarde chaque meeting où on récupere la liste des participants 
+		// pour chaque participants on regarde s'il est invité, à la fin on renvoi la liste des meetings
+		for (var meeting : meetings.entrySet()) {
+			var participants = meeting.getValue().getParticipants();
+			
+			
+			for (var participant : participants.entrySet()) {
+				if (participant.getKey().equals(user.GetMail())) {
+					listMeeting.add(meeting.getValue());
+					break;
+				}
+			}
+		}
+		
+		return listMeeting;
 	}
 
 	public static void addMeeting(String getMeetingName, Meeting meeting) {
