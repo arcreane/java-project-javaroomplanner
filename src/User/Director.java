@@ -366,7 +366,6 @@ public class Director extends User {
 		String getnameroomgremove = input.nextLine();
 		SimulateBDD.removeUser(getnameroomgremove);
 		System.out.println("Votre salle : " + getnameroomgremove + "a bien Ã©tÃ© supprimer");
-		
 	}
 
 	private void RoomUpdate() {
