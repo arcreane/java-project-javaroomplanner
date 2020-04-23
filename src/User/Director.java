@@ -248,7 +248,6 @@ public class Director extends Manager {
 	}
 
 	private void DisplayMeetingAll() {
-		// TODO Auto-generated method stub
 		Meeting.MeetingAll();
 	}
 
