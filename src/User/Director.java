@@ -156,15 +156,18 @@ public class Director extends User {
 			System.out.println("Que voulez faire ?");
 			System.out.println("Choix 1 : Gérer les utilisateurs");
 			System.out.println("Choix 2 : Gérer les salles");
-			System.out.println("Choix 3 : Se déconnecter");
+			System.out.println("Choix 3 : Gérer les réunions");
+			System.out.println("Choix 4 : Se déconnecter");
 			String getionInterface = input.nextLine();
 			
 			switch(getionInterface) {
 			case "1" :
 				UserManagement();
 			case "2":
-				RoomManagement();
+				MeetingManagement();
 			case "3":
+				RoomManagement();
+			case "4":
 				//Se déconnecter
 				keepWorking = false;
 				break;
@@ -173,6 +176,79 @@ public class Director extends User {
 
 	}
 	
+	private void MeetingManagement() {
+		// TODO Auto-generated method stub
+		boolean gestionMeeting = true;
+		while (gestionMeeting) {
+			System.out.println("Bienvenue dans la Gestions des Réunions : Que voulez-vous faire ?");
+			System.out.println("Choix 1 : Voir tous les réunions");
+			System.out.println("Choix 2 : Créer une nouvelle réunion");
+			System.out.println("Choix 3 : Afficher une réunion");
+			System.out.println("Choix 4 : Modifier une réunion");
+			System.out.println("Choix 5 : Supprimer une réunion");
+			System.out.println("Choix 6 : Se déconnecter du mode gestions des réunions");
+			String getmeeting = input.nextLine();
+		
+		switch(getmeeting)
+		{
+		
+		case "1" :
+			System.out.println("Voici la liste des réunions :");
+			DisplayMeetingAll();
+			break;
+		case "2" :
+			System.out.println("Vous pouvez désormais crée une nouvelle réunion :");
+			MeetingCreate();
+			break;
+		case "3" :
+			System.out.println("Ecriver le nom de la réunion que vous voulez voir  :");
+			DisplayMeetingOne();
+			break;
+			
+		case "4" :
+			System.out.println("Voici la liste des réunions que vous pouvez modifier :");
+			MeetingDelete();
+			break;
+		
+		case "5" :
+			System.out.println("Voici la liste des réunions que vous pouvez supprimer :");
+			MeetingDelete();
+			break;
+			
+		case "6":
+			//Se déconnecter
+			gestionMeeting = false;
+			break;
+		
+	
+		}};
+	}
+
+	private void MeetingCreate() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void DisplayMeetingOne() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void MeetingDelete() {
+		// TODO Auto-generated method stub
+		DisplayMeetingAll();
+		System.out.println("Taper le nom de la réunion que vous voulez supprimer :");
+		String getnamemeetingremove = input.nextLine();
+		SimulateBDD.removeUser(getnamemeetingremove);
+		System.out.println("Votre réunion : " + getnamemeetingremove + "a bien Ã©tÃ© supprimer");
+		
+	}
+
+	private void DisplayMeetingAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void UserManagement() {
 		boolean gestionUser = true;
 		while (gestionUser) {
