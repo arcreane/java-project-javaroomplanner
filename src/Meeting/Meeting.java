@@ -3,7 +3,7 @@ package Meeting;
 import java.util.Scanner;
 
 import User.User;
-import Material.material;
+
 
 public class Meeting {
 //Package des réunions
@@ -13,7 +13,7 @@ public class Meeting {
 	String StartTime;
 	String TimeMeeting;
 	String Type;
-	//Materiel materiel;
+	
 	User Organisateur;
 	User Participants;
 	//String Partager;
@@ -24,10 +24,11 @@ public class Meeting {
 
 	}
 
-	Meeting(String name, String date, String starttime, User organisateur, User participants, String type) {
+	Meeting(String name, String date, String starttime, String timemeeting, User organisateur, User participants, String type) {
 		Name = name;
 	    Date = date;
 	    StartTime = starttime;
+	    TimeMeeting = timemeeting;
 		Type = type;
 		Organisateur = organisateur;
 		Participants = participants;
