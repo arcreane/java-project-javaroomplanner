@@ -11,7 +11,7 @@ public class Amphitheater extends Room {
 	}
 
 	public Amphitheater(String name, int slot) {
-		super(name, slot);
+		super(name, slot, null);
 		// TODO Auto-generated constructor stub
 	}
 

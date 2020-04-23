@@ -11,7 +11,7 @@ public class VisioRoom extends Room {
 		
 	}
 	public VisioRoom(String Name, int Slot) {
-		super(Name, Slot);
+		super(Name, Slot, null);
 	}
 	
 	// Verification de la disponibilité de la Room

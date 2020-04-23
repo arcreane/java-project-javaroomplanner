@@ -11,7 +11,7 @@ public class PhoneRoom extends Room {
 	}
 
 	public PhoneRoom(String name, int slot) {
-		super(name, slot);
+		super(name, slot, null);
 		// TODO Auto-generated constructor stub
 	}
 	

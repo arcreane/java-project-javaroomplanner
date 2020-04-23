@@ -15,7 +15,10 @@ import User.Director;
 
 public class ClassicalRoom extends Room {
 
-static Map<MaterialList, Integer> RoomMaterials= new HashMap<>();
+static Map<MaterialList, Integer> RoomMaterials= new HashMap<>() {{
+	put(MaterialList.COMPUTER,2);
+	put(MaterialList.SCREEN,3);
+}};
 
 	public ClassicalRoom(String name, int slot) {
 		

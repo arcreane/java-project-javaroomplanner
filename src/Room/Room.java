@@ -22,10 +22,13 @@ public abstract class Room {
 	}
 
 	Room(String name, int slot, Map <MaterialList,Integer> Materials) { 
-		RoomMaterials=Material.createMaterialList(Materials);
+		if(Materials != null) {
+			RoomMaterials=Material.createMaterialList(Materials);
+		}
 		// Available = available;
 		Slot = slot;
 		Name = name;
+
 	}
 	
 	public String GetRoomName() {
@@ -50,19 +53,19 @@ public abstract class Room {
 		switch(Role)
 		{
 			case "1":
-				room = new Amphitheater(Material, Available, Slot);
+				room = new Amphitheater(Name, Slot);
 				break;
 				
 			case "2":
-				room = new ClassicalRoom(Material, Available, Slot);
+				room = new ClassicalRoom(Name, Slot);
 				break;
 			
 			case "3":
-				room = new PhoneRoom(Name, Material, Available, Slot);
+				room = new PhoneRoom(Name, Slot);
 				break;
 				
 			case "4":
-				room = new VisioRoom(Name ,Material, Available, Slot);
+				room = new VisioRoom(Name, Slot);
 				break;
 		}
 		return room;
@@ -90,7 +93,7 @@ public abstract class Room {
 		roomToAfficher.forEach((roomAll, room)->{
 			System.out.println("-----------------------------------");
 			System.out.println("Name :" +  room.Name );
-			System.out.println("Material :" +  room.Material );
+			//System.out.println("Material :" +  room.Material );
 			System.out.println("Available :" + room.Available );
 			System.out.println("Slot :" + room.Slot );
 			System.out.println("-----------------------------------");
