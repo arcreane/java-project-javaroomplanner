@@ -235,6 +235,8 @@ public class Director extends Manager {
 
 	private void DisplayMeetingOne() {
 		// TODO Auto-generated method stub
+		System.out.println("Voici la liste des reunions :");
+		Meeting.MeetingAll();
 		String getnamemeetingunique = input.nextLine();
 		Map<String, Meeting> meetingToAfficherOne = SimulateBDD.getmeeting();
 		Meeting meetingunique = meetingToAfficherOne.get(getnamemeetingunique);
