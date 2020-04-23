@@ -42,12 +42,7 @@ public class Meeting {
 		return Name;
 	}
 	
-<<<<<<< HEAD
 	public static void MeetingAll() {
-=======
-	public static void DisplayMeetingAll() {
-		
->>>>>>> branch 'master' of https://github.com/arcreane/java-project-javaroomplanner
 		Map<String, Meeting> meetingToAfficher = SimulateBDD.getmeeting();
 		meetingToAfficher.forEach((MeetingAll, Meeting)->{
 			System.out.println("-----------------------------------");
