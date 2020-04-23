@@ -42,7 +42,8 @@ public class Meeting {
 		return Name;
 	}
 	
-	public void DisplayMeetingAll() {
+	public static void DisplayMeetingAll() {
+		
 		Map<String, Meeting> meetingToAfficher = SimulateBDD.getmeeting();
 		meetingToAfficher.forEach((MeetingAll, Meeting)->{
 			System.out.println("-----------------------------------");

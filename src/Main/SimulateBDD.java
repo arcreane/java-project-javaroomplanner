@@ -32,6 +32,7 @@ public class SimulateBDD {
 		// TODO Auto-generated method stub
 		CreateUsers();
 		CreateRooms();
+		CreateMeeting();
 	}
 	
 	///	Fonctions (CreateUSers et CreateRooms) servent uniquement de plastron 
@@ -61,9 +62,9 @@ public class SimulateBDD {
 		rooms.put(myRoom1.GetRoomName(), myRoom1);
 	}
 	
-	public static void CreateMeeting() {
+	static public  void CreateMeeting() {
 		//String name, String date, String starttime, String timemeeting, User organisateur, User participants, String type
-		Meeting AG = new MeetingObligatory("Assemblée Générale Avril 2020", "24/04/2020", "15:30", "02:00", (Manager)users.get("tony@dam.fr") , users , "Obligatoire" );
+		Meeting AG = new MeetingObligatory("Assemblée Générale Avril 2020", "24/04/2020", "15:30", "02:00", (Manager)users.get("laure@compoint.fr") , users , "Obligatoire" );
 		meetings.put(AG.GetMeetingName(), AG);
 	}
 	
