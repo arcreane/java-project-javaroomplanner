@@ -35,8 +35,6 @@ public abstract class Room {
 				"Pour créer une salle, veuillez nous fournir les informations suivantes :\n Nom de la salle, le matériele, le nombre de place disponible et le nombre de place total");
 	
 		String Name = GetRoomInput("Nom de la salle: "); 
-		String Material = GetRoomInput("Materiel: ");
-		int Available = GetRoomInt("Nombre de place disponible: "); 
 		int Slot = GetRoomInt("Nombre de place total: ");
 
 		String Role = GetRoomInput("Quel est la catégorie de la salle? \n"
@@ -48,19 +46,19 @@ public abstract class Room {
 		switch(Role)
 		{
 			case "1":
-				room = new Amphitheater(Material, Available, Slot);
+				room = new Amphitheater(Name, Slot);
 				break;
 				
 			case "2":
-				room = new ClassicalRoom(Material, Available, Slot);
+				room = new ClassicalRoom(Name, Slot);
 				break;
 			
 			case "3":
-				room = new PhoneRoom(Name, Material, Available, Slot);
+				room = new PhoneRoom(Name, Slot);
 				break;
 				
 			case "4":
-				room = new VisioRoom(Name ,Material, Available, Slot);
+				room = new VisioRoom(Name, Slot);
 				break;
 		}
 		return room;
@@ -79,7 +77,6 @@ public abstract class Room {
 		System.out.println("Rejoignez une reunion");
 	}	
 	
-	public abstract void StartWorking();
 
 	public static void RoomAll() { 
 		// methode dans room pour appeler toute les room en meme temps ( methode appeler dans la partie director )
