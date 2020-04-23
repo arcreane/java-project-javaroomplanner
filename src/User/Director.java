@@ -6,7 +6,7 @@ import Main.SimulateBDD;
 import Meeting.Meeting;
 import Room.Room;
 
-public class Director extends User {
+public class Director extends Manager {
 
 	Director() {
 
@@ -249,7 +249,7 @@ public class Director extends User {
 
 	private void DisplayMeetingAll() {
 		// TODO Auto-generated method stub
-		Meeting.DisplayMeetingAll();
+		Meeting.MeetingAll();
 	}
 
 	private void UserManagement() {
@@ -363,7 +363,11 @@ public class Director extends User {
 
 	private void RoomDelete() {
 		// TODO Auto-generated method stub
-		
+		DisplayRoomAll();
+		System.out.println("Taper le nom de la salle que vous voulez supprimer :");
+		String getnameroomgremove = input.nextLine();
+		SimulateBDD.removeUser(getnameroomgremove);
+		System.out.println("Votre salle : " + getnameroomgremove + "a bien Ã©tÃ© supprimer");
 	}
 
 	private void RoomUpdate() {
