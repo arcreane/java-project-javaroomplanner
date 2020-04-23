@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import Material.Material;
-
+import Material.MaterialList;
 import Main.SimulateBDD;
 
 public abstract class Room {
@@ -21,8 +21,8 @@ public abstract class Room {
 
 	}
 
-	Room(String name, int slot, List <Material> Materials) { 
-		RoomMaterials = Materials;
+	Room(String name, int slot, Map <MaterialList,Integer> Materials) { 
+		RoomMaterials=Material.createMaterialList(Materials);
 		// Available = available;
 		Slot = slot;
 		Name = name;

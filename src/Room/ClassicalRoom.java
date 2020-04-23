@@ -1,9 +1,11 @@
 package Room;
 import Material.Material;
+import Material.MaterialList;
 import Material.Screen;
 import Material.Sound;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,11 +15,11 @@ import User.Director;
 
 public class ClassicalRoom extends Room {
 
-
+static Map<MaterialList, Integer> RoomMaterials= new HashMap<>();
 
 	public ClassicalRoom(String name, int slot) {
 		
-		super(name, slot);
+		super(name, slot, RoomMaterials);
 		// TODO Auto-generated constructor stub
 	}
 
