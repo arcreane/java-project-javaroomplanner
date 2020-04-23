@@ -1,4 +1,4 @@
-package Room;
+package Material;
 
 public class Computer extends Material {
 

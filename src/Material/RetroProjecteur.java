@@ -1,4 +1,4 @@
-package Room;
+package Material;
 
 public class RetroProjecteur extends Material {
 
