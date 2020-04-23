@@ -244,7 +244,7 @@ public class Director extends Manager {
 		String getnamemeetingremove = input.nextLine();
 		SimulateBDD.removeUser(getnamemeetingremove);
 		System.out.println("Votre réunion : " + getnamemeetingremove + "a bien Ã©tÃ© supprimer");
-		
+		//test
 	}
 
 	private void DisplayMeetingAll() {
