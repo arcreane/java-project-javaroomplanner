@@ -8,8 +8,8 @@ public class MeetingOptional extends Meeting {
 
 	}
 
-	public MeetingOptional(String name, String date, String starttime, User user, String type) {
-		super(name, date, starttime, user, type);
+	public MeetingOptional(String name, String date, String starttime, User organisateur, User participants, String type) {
+		super(name, date, starttime, organisateur, participants, type);
 		// TODO Auto-generated constructor stub
 	}
 

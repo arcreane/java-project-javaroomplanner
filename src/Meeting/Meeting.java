@@ -3,6 +3,7 @@ package Meeting;
 import java.util.Scanner;
 
 import User.User;
+import Material.material;
 
 public class Meeting {
 //Package des réunions
@@ -11,19 +12,24 @@ public class Meeting {
 	String Date;
 	String StartTime;
 	String TimeMeeting;
-	User user; 
 	String Type;
+	//Materiel materiel;
+	User Organisateur;
+	User Participants;
+	
 	static Scanner input = new Scanner(System.in);
 	
 	public Meeting() {
 
 	}
 
-	Meeting(String name, String date, String starttime, User user, String type) {
+	Meeting(String name, String date, String starttime, User organisateur, User participants, String type) {
 		Name = name;
 	    Date = date;
 	    StartTime = starttime;
 		Type = type;
+		Organisateur = organisateur;
+		Participants = participants;
 	}
 
 	public String GetMetting() {
