@@ -3,7 +3,7 @@ package User;
 import java.util.Map;
 
 import Main.SimulateBDD;
-import Meeting.Meeting;
+
 import Room.Room;
 
 public class Director extends User {
@@ -165,10 +165,9 @@ public class Director extends User {
 			case "1" :
 				UserManagement();
 			case "2":
-				MeetingManagement();
-			case "3":
 				RoomManagement();
-				
+			case "3":
+				MeetingManagement();
 			case "4":
 				//Se déconnecter
 				keepWorking = false;
