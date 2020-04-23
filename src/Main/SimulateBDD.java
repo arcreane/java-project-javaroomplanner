@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import Meeting.Meeting;
+import Meeting.MeetingObligatory;
 import Room.PhoneRoom;
 import Room.Room;
 import Room.VisioRoom;
@@ -23,6 +25,8 @@ public class SimulateBDD {
 	//Variable static qui contient tous nos utilisateurs
 	private static Map<String,Room> rooms = new HashMap<String, Room>();
 	
+	//Variable static qui contient tous nos réunions
+	private static Map<String,Meeting> meetings = new HashMap<String, Meeting>();
 	
 	public static void SetUpDatas() {
 		// TODO Auto-generated method stub
