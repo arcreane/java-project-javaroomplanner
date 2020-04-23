@@ -19,9 +19,9 @@ public abstract class Room {
 
 	}
 
-	Room(String name, String material, int available, int slot) { 
-		Material = material;
-		Available = available;
+	Room(String name, int slot) { 
+		// Material = material;
+		// Available = available;
 		Slot = slot;
 		Name = name;
 	}

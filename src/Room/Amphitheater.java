@@ -10,8 +10,8 @@ public class Amphitheater extends Room {
 
 	}
 
-	public Amphitheater(String name, String material, int available, int slot) {
-		super(name, material, available, slot);
+	public Amphitheater(String name, int slot) {
+		super(name, slot);
 		// TODO Auto-generated constructor stub
 	}
 
