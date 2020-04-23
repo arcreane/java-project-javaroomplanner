@@ -227,7 +227,9 @@ public class Director extends User {
 
 	private void MeetingCreate() {
 		// TODO Auto-generated method stub
-		
+		Meeting meeting = Meeting.CreateMeeting();
+		SimulateBDD.addMeeting(meeting.GetMeetingName(),meeting);
+		System.out.println("Vous venez d'enregistrer votre nouvelle salle :");
 	}
 
 	private void DisplayMeetingOne() {

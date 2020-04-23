@@ -5,6 +5,11 @@ import java.util.Map;
 import java.util.Scanner;
 
 import Main.SimulateBDD;
+import Room.Amphitheater;
+import Room.ClassicalRoom;
+import Room.PhoneRoom;
+import Room.Room;
+import Room.VisioRoom;
 import User.Manager;
 import User.User;
 
@@ -17,9 +22,9 @@ public class Meeting {
 	String StartTime;
 	String TimeMeeting;
 	String Type;
-	//Materiel materiel;
+	static //Materiel materiel;
 	Manager Organisateur;
-	Map<String, User> Participants;
+	static Map<String, User> Participants;
 	//String Partager;
 	
 	static Scanner input = new Scanner(System.in);
@@ -41,6 +46,10 @@ public class Meeting {
 	public String GetMeetingName() {
 		return Name;
 	}
+	private static String GetMeetingInput(String InfoToGet) {
+		System.out.print(InfoToGet);
+		return input.nextLine();
+	}
 	
 	public static void DisplayMeetingAll() {
 		
@@ -58,4 +67,35 @@ public class Meeting {
 		});
 		
 	}
+	
+	static public Meeting CreateMeeting() { 
+		System.out.println(
+				"Pour créer une reunion, veuillez nous fournir les informations suivantes :\n Nom de la reunion, la date , l'heure de la reunion et le temps de la duréé de la réunion, l'organisateur, et les partipants");
+	
+		String Name = GetMeetingInput("Nom de la reunion: "); 
+		String Date = GetMeetingInput("Date de la reunion: ");
+		String StartTime = GetMeetingInput("Heure du début de la réunion: "); 
+		String TimeMeeting = GetMeetingInput("Durée de la réunion : ");
+		
+
+		String Type = GetMeetingInput("Quel est le type de la réunion? \n"
+				+ "1 > Optionel,\n"
+				+ "2 > Obligatoire .\n");
+				
+		Meeting meeting = null; 
+		switch(Type)
+		{
+			case "1":
+				meeting = new MeetingObligatory(Name,Date, StartTime, TimeMeeting, Organisateur, Participants, Type);
+				break;
+				
+			case "2":
+				meeting = new MeetingOptional(Name,Date, StartTime, TimeMeeting, Organisateur, Participants, Type);
+				break;
+			
+		
+		}
+		return meeting;
+	}
+
 }

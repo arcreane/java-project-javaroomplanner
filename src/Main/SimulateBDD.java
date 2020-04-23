@@ -145,5 +145,10 @@ public class SimulateBDD {
 		return meeting;
 	}
 
+	public static void addMeeting(String getMeetingName, Meeting meeting) {
+		// TODO Auto-generated method stub
+		meetings.put(getMeetingName, meeting);
+	}
+
 
 }
