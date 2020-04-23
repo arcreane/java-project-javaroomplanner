@@ -10,8 +10,8 @@ public class ClassicalRoom extends Room {
 
 	}
 
-	public ClassicalRoom(String name, String material, int available, int slot) {
-		super(name, material, available, slot);
+	public ClassicalRoom(String name, int slot) {
+		super(name, slot);
 		// TODO Auto-generated constructor stub
 	}
 

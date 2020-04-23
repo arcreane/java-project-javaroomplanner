@@ -53,7 +53,7 @@ public class SimulateBDD {
 	
 	static public void CreateRooms()
 	{
-		Room myRoom1 = new VisioRoom("Visio Room", "Ecran", 3, 15 );
+		Room myRoom1 = new VisioRoom("Visio Room", 15 );
 		rooms.put(myRoom1.GetRoomName(), myRoom1);
 	}
 	

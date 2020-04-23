@@ -10,8 +10,8 @@ public class VisioRoom extends Room {
 	VisioRoom() {
 		
 	}
-	public VisioRoom(String Name, String Materiel, int  Available, int Slot) {
-		super(Name, Materiel, Available, Slot);
+	public VisioRoom(String Name, int Slot) {
+		super(Name, Slot);
 	}
 
 	

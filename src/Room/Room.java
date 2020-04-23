@@ -10,8 +10,8 @@ import Main.SimulateBDD;
 public abstract class Room {
 
 	String Name;
-	String Material;
-	int Available;
+	// String Material;
+	// int Available;
 	int Slot;
 	static Scanner input = new Scanner(System.in);
 	
@@ -42,7 +42,7 @@ public abstract class Room {
 				+ "2 > Classical Room,\n"
 				+ "3 > Phone Room \n"
 				+ "4 > Visio Room \n");
-		Room room = null;
+		Room room = null; 
 		switch(Role)
 		{
 			case "1":
@@ -71,7 +71,9 @@ public abstract class Room {
 	private static int GetRoomInt(String InfoToGet) { 
 // pour permettre d'ecrire un int a l'user et plus un string
 		System.out.print(InfoToGet);
-		return input.nextInt();
+		int temp = input.nextInt();
+		input.nextLine();
+		return temp;
 	}
 	public static void JoinMeeting() {
 		System.out.println("Rejoignez une reunion");
@@ -84,8 +86,6 @@ public abstract class Room {
 		roomToAfficher.forEach((roomAll, room)->{
 			System.out.println("-----------------------------------");
 			System.out.println("Name :" +  room.Name );
-			System.out.println("Material :" +  room.Material );
-			System.out.println("Available :" + room.Available );
 			System.out.println("Slot :" + room.Slot );
 			System.out.println("-----------------------------------");
 		});
