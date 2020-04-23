@@ -1,7 +1,10 @@
 package Meeting;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
+import User.Manager;
 import User.User;
 
 
@@ -13,9 +16,9 @@ public class Meeting {
 	String StartTime;
 	String TimeMeeting;
 	String Type;
-	
-	User Organisateur;
-	User Participants;
+	//Materiel materiel;
+	Manager Organisateur;
+	Map<String, User> Participants;
 	//String Partager;
 	
 	static Scanner input = new Scanner(System.in);
@@ -24,7 +27,7 @@ public class Meeting {
 
 	}
 
-	Meeting(String name, String date, String starttime, String timemeeting, User organisateur, User participants, String type) {
+	Meeting(String name, String date, String starttime,String timemeeting, Manager organisateur, Map<String, User> participants, String type) {
 		Name = name;
 	    Date = date;
 	    StartTime = starttime;
@@ -34,7 +37,7 @@ public class Meeting {
 		Participants = participants;
 	}
 
-	public String GetMetting() {
+	public String GetMeetingName() {
 		return Name;
 	}
 }
