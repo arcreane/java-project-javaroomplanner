@@ -3,6 +3,7 @@ package User;
 import java.util.Map;
 
 import Main.SimulateBDD;
+import Room.Room;
 
 public class Director extends User {
 
@@ -10,8 +11,8 @@ public class Director extends User {
 
 	}
 
-	public Director(String name, String username, String mail, String password, String comfirmpassword) {
-		super(name, username, mail, password, comfirmpassword);
+	public Director(String name, String username, String mail, String password, String comfirmpassword, String role) {
+		super(name, username, mail, password, comfirmpassword, role);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -33,6 +34,7 @@ public class Director extends User {
 			System.out.println("Name :" +  User.Name );
 			System.out.println("Prenom :" + User.Username );
 			System.out.println("Mail :" + User.Mail );
+			System.out.println("Role :" + User.Role );
 			System.out.println("-----------------------------------");
 		});
 		
@@ -82,15 +84,19 @@ public class Director extends User {
 		DisplayUserAll();
 		System.out.println("Taper l'identifiant (mail) de l'user que vous voulez modifier :");
 		String getmailusermodif = input.nextLine();
-		System.out.println("Maintenant taper les nouvelles information que vous voulez modifier :");
-
+		
 		User userToModif = userToAfficherPourModifier.remove(getmailusermodif);
-
-		// Récupérer de la part de l'utilisateur le nouveau role à donner
-		int newRole = 0; // 0 pour manager, 1 pour collaborateur, 2 pour directeur, 3 pour guest
-		userToModif = User.ChangeUserRole(userToModif, ROLE_TYPE.values()[newRole]);
+		String newRole = GetUserModifInput("Quel est la promotion de cet user ?\n"
+				+ "1 > Collaborateur,\n"
+				+ "2 > Guest,\n"
+				+ "3 > Manager \n"
+		         + "4 > Director \n");
+		
+		
+		userToModif = User.ChangeUserRole(userToModif, newRole);
 		
 		SimulateBDD.addUser(userToModif.GetMail(), userToModif);
+		System.out.println("La promotion à bien été pris en compte");
 		
 	}
 	public void UserUpdate() {
@@ -114,18 +120,18 @@ public class Director extends User {
 		switch(Role)
 		{
 			case "1":
-				SimulateBDD.getusers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Collaborator(Name, Username, Mail, Password,ConfirmPassword ) );
+				SimulateBDD.getusers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Collaborator(Name, Username, Mail, Password,ConfirmPassword, Role ) );
 				break;
 				
 			case "2":
-				SimulateBDD.getusers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Guest(Name, Username, Mail, Password,ConfirmPassword ) );
+				SimulateBDD.getusers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Guest(Name, Username, Mail, Password,ConfirmPassword, Role ) );
 				break;
 			
 			case "3":
-				SimulateBDD.getusers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Manager(Name, Username, Mail, Password,ConfirmPassword ) );
+				SimulateBDD.getusers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Manager(Name, Username, Mail, Password,ConfirmPassword, Role ) );
 				break;
 			case "4":
-				SimulateBDD.getusers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Director(Name, Username, Mail, Password,ConfirmPassword ) );
+				SimulateBDD.getusers().replace( getmailusermodif, userToAfficherPourModifier.get(getmailusermodif), new Director(Name, Username, Mail, Password,ConfirmPassword, Role ) );
 				
 				break;
 		}
@@ -141,6 +147,32 @@ public class Director extends User {
 		System.out.print(InfoToGet);
 		return input.nextLine();
 	}
+	
+	
+	@Override
+	public void StartWorking() {
+		boolean keepWorking = true;
+		while (keepWorking) {
+			System.out.println("Que voulez faire ?");
+			System.out.println("Choix 1 : Gérer les utilisateurs");
+			System.out.println("Choix 2 : Gérer les salles");
+			System.out.println("Choix 3 : Se déconnecter");
+			String getionInterface = input.nextLine();
+			
+			switch(getionInterface) {
+			case "1" :
+				UserManagement();
+			case "2":
+				RoomManagement();
+			case "3":
+				//Se déconnecter
+				keepWorking = false;
+				break;
+			}
+		}
+
+	}
+	
 	private void UserManagement() {
 		boolean gestionUser = true;
 		while (gestionUser) {
@@ -149,9 +181,10 @@ public class Director extends User {
 			System.out.println("Choix 2 : Créer un nouvel utilisateur");
 			System.out.println("Choix 3 : Afficher un utilisateur");
 			System.out.println("Choix 4 : Promouvoir un utilisateur");
-			System.out.println("Choix 5 : Supprimer un utilisateur");
-			System.out.println("Choix 6 : Valider les demandes d'inscription.");
-			System.out.println("Choix 7 : Se déconnecter du mode gestions des utilidateurs");
+			System.out.println("Choix 4 : Modifier tout les données d'un utilisateur");
+			System.out.println("Choix 6 : Supprimer un utilisateur");
+			System.out.println("Choix 7 : Valider les demandes d'inscription.");
+			System.out.println("Choix 8 : Se déconnecter du mode gestions des utilidateurs");
 			String getuser = input.nextLine();
 		
 		switch(getuser)
@@ -171,21 +204,26 @@ public class Director extends User {
 			break;
 			
 		case "4" :
-			System.out.println("Voici la liste des utilisateur que vous pouvez modifier,  :");
+			System.out.println("Voici la liste des utilisateur que vous pouvez promouvoir :");
 			UserPromotion();
 			break;
-		
+			
 		case "5" :
-			System.out.println("Voici la liste des utilisateur que vous pouvez supprimer,  :");
+			System.out.println("Voici la liste des utilisateur que vous pouvez modifier :");
+			UserUpdate();
+			break;
+		
+		case "6" :
+			System.out.println("Voici la liste des utilisateur que vous pouvez supprimer :");
 			UserDelete();
 			break;
 			
-		case "6" :
+		case "7" :
 			System.out.println("Voici la liste des demandes d'utilisateur :");
 			UserDemandeValidation();
 			break;
 			
-		case "7":
+		case "8":
 			//Se déconnecter
 			gestionUser = false;
 			break;
@@ -193,6 +231,7 @@ public class Director extends User {
 	
 		}};
 	}
+	
 	private void RoomManagement() {
 		boolean gestionSalles = true;
 		while (gestionSalles) {
@@ -211,7 +250,7 @@ public class Director extends User {
 			
 		case "1" :
 			System.out.println("Voici la liste des salles :");
-			//UserAll();
+			DisplayRoomAll();
 			break;
 			
 		case "2" :
@@ -221,21 +260,18 @@ public class Director extends User {
 			
 		case "3":
 			System.out.println("Vous pouvez désormais incricre une nouvelle salle :");
-			//User user = User.RegisterUser();
-			//SimulateBDD.getUsers().put(user.GetMail(),user);
+			Room room = Room.CreateRoom();
+			SimulateBDD.addRoom(room.GetRoomName(),room);
 			System.out.println("Vous venez d'enregistrer votre nouvelle salle :");
 			break;
 			
 		case "5":
 			System.out.println("Voici la liste des salles que vous pouvez modifier  :");
+			RoomUpdate();
 		
 		case "6" :
 			System.out.println("Voici la liste des salles que vous pouvez supprimer,  :");
-			//UserAll();
-			System.out.println("Taper le nom de la salle que vous voulez supprimer :");
-			//String getmailuserremove = input.nextLine();
-			//SimulateBDD.getUsers().remove(getmailuserremove);
-			System.out.println("Votre salle : "+ /*getmailuserremove +*/ "a bien été supprimer");
+			RoomDelete();
 			break;	
 		case "7":
 			//Se déconnecter
@@ -245,27 +281,22 @@ public class Director extends User {
 		
 		}};
 	}
-	@Override
-	public void StartWorking() {
-		boolean keepWorking = true;
-		while (keepWorking) {
-			System.out.println("Que voulez faire ?");
-			System.out.println("Choix 1 : Gérer les utilisateurs");
-			System.out.println("Choix 2 : Gérer les salles");
-			System.out.println("Choix 3 : Se déconnecter");
-			String getionInterface = input.nextLine();
-			
-			switch(getionInterface) {
-			case "1" :
-				UserManagement();
-			case "2":
-				 RoomManagement();
-			case "3":
-				//Se déconnecter
-				keepWorking = false;
-				break;
-			}
-		}
 
+	private void RoomDelete() {
+		// TODO Auto-generated method stub
+		
 	}
+
+	private void RoomUpdate() {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	public static void DisplayRoomAll() {
+		// TODO Auto-generated method stub
+		Room.RoomAll();
+	}
+
+	
 }

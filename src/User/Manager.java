@@ -6,8 +6,8 @@ public class Manager extends User {
 	Manager(){
 		
 	}
-	public Manager(String name, String username, String mail, String password, String comfirmpassword) {
-		super(name, username, mail, password, comfirmpassword);
+	public Manager(String name, String username, String mail, String password, String comfirmpassword, String role) {
+		super(name, username, mail, password, comfirmpassword, role);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,7 +29,7 @@ public class Manager extends User {
 			switch(gestionReunion) {
 			case "1":
 				System.out.println("Voici la liste de vos réservations :");
-				//myReservation();
+				myReservation();
 				break;
 				
 			case "2" :
@@ -44,16 +44,16 @@ public class Manager extends User {
 					{
 					case "1":
 						System.out.println("Vous pouvez désormais incricre une nouvelle salle :");
-						//createReservation();
+						createReservation();
 						break;
 				
 					case "2":
 						System.out.println("Voici la liste de vos réservations que vous pouvez modifier,  :");
-						//myReservationUpdate();
+						myReservationUpdate();
 						break;
 					case "3":
 						System.out.println("Voici la liste de vos réservations que vous pouvez supprimer  :");
-						//myReservationUDelete();
+						myReservationUDelete();
 						break;
 					}
 				};
@@ -63,5 +63,21 @@ public class Manager extends User {
 				break;
 			};
 		}
+	}
+	private void myReservation() {
+		// TODO Auto-generated method stub
+		
+	}
+	private void createReservation() {
+		// TODO Auto-generated method stub
+		
+	}
+	private void myReservationUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
+	private void myReservationUDelete() {
+		// TODO Auto-generated method stub
+		
 	}
 }

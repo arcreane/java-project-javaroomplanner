@@ -1,13 +1,7 @@
 package User;
 
 import java.util.Scanner;
-enum ROLE_TYPE
-{
-	DIRECTOR,
-	MANAGER,
-	COLLABORATOR,
-	GUEST
-}
+
 public abstract class User {
 
 	String Name;
@@ -15,18 +9,20 @@ public abstract class User {
 	String Mail;
 	String Password;
 	String ConfirmPassword;
+	String Role;
 	static Scanner input = new Scanner(System.in);
 	
 	public User() {
 
 	}
 
-	User(String name, String username, String mail, String password, String confirmpassword) {
+	User(String name, String username, String mail, String password, String confirmpassword, String role) {
 		Name = name;
 		Username = username;
 		Mail = mail;
 		Password = password;
 		ConfirmPassword = confirmpassword;
+		Role = role;
 	}
 
 	public String GetMail() {
@@ -56,15 +52,15 @@ public abstract class User {
 		switch(Role)
 		{
 			case "1":
-				user = new Collaborator(Name, Username, Mail, Password, ConfirmPassword);
+				user = new Collaborator(Name, Username, Mail, Password, ConfirmPassword, "Collaborator");
 				break;
 				
 			case "2":
-				user = new Guest(Name, Username, Mail, Password, ConfirmPassword);
+				user = new Guest(Name, Username, Mail, Password, ConfirmPassword, "Guest");
 				break;
 			
 			case "3":
-				user = new Manager(Name, Username, Mail, Password, ConfirmPassword);
+				user = new Manager(Name, Username, Mail, Password, ConfirmPassword, "Manager");
 				break;
 		}
 		return user;
@@ -86,7 +82,7 @@ public abstract class User {
 	
 	public abstract void StartWorking();
 	
-	public static User ChangeUserRole(User userToModif, ROLE_TYPE newRole) {
+	public static User ChangeUserRole(User userToModif, String newRole) {
 		User user = null;
 		String name = userToModif.Name;
 		String userName = userToModif.Username;
@@ -94,17 +90,17 @@ public abstract class User {
 		String pass = userToModif.Password;
 		switch (newRole)
 		{
-		case COLLABORATOR:
-			user = new Collaborator(name, userName, mail, pass, pass);
+		case "1":
+			user = new Collaborator(name, userName, mail, pass, pass, "Collaborator");
 			break;
-		case DIRECTOR:
-			user = new Director(name, userName, mail, pass, pass);
+		case "4":
+			user = new Director(name, userName, mail, pass, pass,  "Director");
 			break;
-		case GUEST:
-			user = new Guest(name, userName, mail, pass, pass);
+		case "2":
+			user = new Guest(name, userName, mail, pass, pass, "Guest");
 			break;
-		case MANAGER:
-			user = new Manager(name, userName, mail, pass, pass);
+		case "3":
+			user = new Manager(name, userName, mail, pass, pass, "Manager");
 			break;
 		default:
 			break;

@@ -1,26 +1,22 @@
 package User;
 
 import java.util.Map;
+import User.Director;
 
 import Main.SimulateBDD;
+import Room.Room;
 
 public class Collaborator extends User {
 	
-	public Collaborator(String name, String username, String mail, String password,  String comfirmpassword) {
-		super(name, username, mail, password, comfirmpassword);
+	public Collaborator(String name, String username, String mail, String password,  String comfirmpassword, String role) {
+		super(name, username, mail, password, comfirmpassword, role);
 		// TODO Auto-generated constructor stub
 	}
    
 	Collaborator() {
 	}
 
-	public static Collaborator createnewusercollaborateur() {
-		Collaborator newcollaborator = new Collaborator();
-		
-       
-		newcollaborator.RegisterUser();
-		return newcollaborator;
-	}
+	
 
 	@Override
 	public void StartWorking() {
@@ -33,7 +29,10 @@ public class Collaborator extends User {
 			String getuser = input.nextLine();
 			switch(getuser)
 			{
-			case "2" :
+			case "1" : 	System.out.println("Voici la liste des salles :");
+			Director.DisplayRoomAll();
+			case "2" : System.out.println("Pour rejoindre une salle, taper son nom, puis écrivez rejoindre");
+			Room.JoinMeeting();
 				
 				break;
 			case "3":
