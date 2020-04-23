@@ -138,5 +138,11 @@ public class SimulateBDD {
 		
 	}
 
+	public static Map<String, Meeting> getmeeting() {
+		// TODO Auto-generated method stub
+		final Map<String, Meeting> meeting = new HashMap<String, Meeting>(meetings);
+		return meeting;
+	}
+
 
 }
