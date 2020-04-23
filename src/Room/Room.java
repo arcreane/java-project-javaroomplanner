@@ -79,6 +79,10 @@ public abstract class Room {
 		System.out.println("Rejoignez une reunion");
 	}	
 	
+	// S'il y a une place, on autorise la personne à rejoindre la Room 
+	public static void JoinRoom() {
+		System.out.print("Vous avez rejoint la réunion");
+	}
 
 	public static void RoomAll() { 
 		// methode dans room pour appeler toute les room en meme temps ( methode appeler dans la partie director )
