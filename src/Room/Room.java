@@ -17,7 +17,7 @@ public abstract class Room {
 	static Scanner input = new Scanner(System.in);
 	
 	public Room() {
-
+		System.out.println("test");
 	}
 
 	Room(String Material, int Available, int Slot) {
