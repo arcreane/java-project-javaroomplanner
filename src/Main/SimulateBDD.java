@@ -58,9 +58,9 @@ public class SimulateBDD {
 	}
 	
 	public static void CreateMeeting() {
-		//String name, String date, String starttime, User organisateur, User participants, String type
-		Meeting AG = new Amphitheater("Assemblée Générale Avril 2020", "24/04/2020", "15:30",  );
-		rooms.put(AG.GetMeetingName(), AG);
+		//String name, String date, String starttime, String timemeeting, User organisateur, User participants, String type
+		Meeting AG = new MeetingObligatory("Assemblée Générale Avril 2020", "24/04/2020", "15:30", "02:00", (Manager)users.get("tony@dam.fr") , users , "Obligatoire" );
+		meetings.put(AG.GetMeetingName(), AG);
 	}
 	
 	static User Login()
