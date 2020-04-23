@@ -247,7 +247,7 @@ public class Director extends User {
 
 	private void DisplayMeetingAll() {
 		// TODO Auto-generated method stub
-		Meeting.MeetingAll();
+	
 	}
 
 	private void UserManagement() {
